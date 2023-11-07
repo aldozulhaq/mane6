@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Water
+  m_Name: WaterSpecular
   m_Shader: {fileID: -6465566751694194690, guid: 9c5ec89c6d5110a418486f3279cb5200,
     type: 3}
   m_Parent: {fileID: 0}
@@ -41,10 +41,10 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _SpecularOpacity: 1
-    - _isSpecularLayer: 0
+    - _isSpecularLayer: 1
     m_Colors:
     - _Color: {r: 0.16220188, g: 0.5514625, b: 0.764151, a: 0}
-    - _Specular_Color: {r: 5.9921565, g: 5.9921565, b: 5.9921565, a: 0}
+    - _Specular_Color: {r: 7.9999986, g: 7.9999986, b: 7.9999986, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &3907936104333545462
 MonoBehaviour:
