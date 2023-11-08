@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] float moveSpeed;
     [SerializeField] float health;
+    [SerializeField] float damage;
 
     Player player;
     private bool canHit;
@@ -24,6 +25,7 @@ public class Enemy : MonoBehaviour
         while (true)
         {
             transform.position = Vector3.MoveTowards(transform.position, player.transform.position, moveSpeed * Time.deltaTime);
+            transform.LookAt(player.transform);
             yield return null;
         }
     }
@@ -41,11 +43,16 @@ public class Enemy : MonoBehaviour
 
     private IEnumerator OnPlayerHit()
     {
-        Debug.Log("Hit Player");
+        player.TakeDamage(damage);
         canHit = false;
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(hitCooldown);
 
         canHit = true;
+    }
+
+    public void TakeDamage(float damage)
+    {
+        health -= damage;
     }
 }
