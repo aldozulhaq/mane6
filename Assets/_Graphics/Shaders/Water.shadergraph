@@ -1713,29 +1713,6 @@
 
 {
     "m_SGVersion": 0,
-    "m_Type": "UnityEditor.ShaderGraph.Vector3MaterialSlot",
-    "m_ObjectId": "2c6e294e08d74f489b29d90bc533c7cd",
-    "m_Id": -652316676,
-    "m_DisplayName": "PlayerPos",
-    "m_SlotType": 0,
-    "m_Hidden": false,
-    "m_ShaderOutputName": "_PlayerPos",
-    "m_StageCapability": 2,
-    "m_Value": {
-        "x": 0.0,
-        "y": 0.0,
-        "z": 0.0
-    },
-    "m_DefaultValue": {
-        "x": 0.0,
-        "y": 0.0,
-        "z": 0.0
-    },
-    "m_Labels": []
-}
-
-{
-    "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.DynamicValueMaterialSlot",
     "m_ObjectId": "2c7dcd8604c1486099a88b432442c73f",
     "m_Id": 2,
@@ -4551,9 +4528,6 @@
         }
     },
     "m_Slots": [
-        {
-            "m_Id": "2c6e294e08d74f489b29d90bc533c7cd"
-        },
         {
             "m_Id": "ef7b3611e7f64c058a9b61b88a8fda33"
         }
