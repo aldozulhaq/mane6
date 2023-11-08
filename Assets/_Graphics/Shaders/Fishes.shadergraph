@@ -883,6 +883,9 @@
     },
     "m_Slots": [
         {
+            "m_Id": "dee1bf925975477aa17a7824d59bd96e"
+        },
+        {
             "m_Id": "18ea35bf68fa45dba1433c13e6bf0ce9"
         }
     ],
@@ -896,10 +899,12 @@
     },
     "m_SerializedSubGraph": "{\n    \"subGraph\": {\n        \"fileID\": -5475051401550479605,\n        \"guid\": \"04ef8f3b25027b347be6f089f8dd19ae\",\n        \"type\": 3\n    }\n}",
     "m_PropertyGuids": [
-        "04bedfdf-2fef-4bf9-bd19-89c4e98ecab6"
+        "04bedfdf-2fef-4bf9-bd19-89c4e98ecab6",
+        "391791ca-5e1c-40fc-9bb3-fc8bb113092b"
     ],
     "m_PropertyIds": [
-        1023698788
+        1023698788,
+        -652316676
     ],
     "m_Dropdowns": [],
     "m_DropdownSelectedEntries": []
@@ -1319,6 +1324,29 @@
         "z": 0.0,
         "w": 0.0
     }
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Vector3MaterialSlot",
+    "m_ObjectId": "dee1bf925975477aa17a7824d59bd96e",
+    "m_Id": -652316676,
+    "m_DisplayName": "PlayerPos",
+    "m_SlotType": 0,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "_PlayerPos",
+    "m_StageCapability": 2,
+    "m_Value": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+    },
+    "m_DefaultValue": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+    },
+    "m_Labels": []
 }
 
 {
