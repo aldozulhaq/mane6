@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: WaterSpecular
-  m_Shader: {fileID: -6465566751694194690, guid: 9c5ec89c6d5110a418486f3279cb5200,
+  m_Name: CloudShadow
+  m_Shader: {fileID: -6465566751694194690, guid: 9a15148df16d0e74db54f3e1fdfdbae6,
     type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -24,10 +24,6 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _SampleTexture2D_c8e2c46fb2804e7d8a232508f741ebdd_Texture_1_Texture2D:
-        m_Texture: {fileID: 8600000, guid: 415ab391ac6693a448b9509c250c5aa8, type: 2}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -42,16 +38,17 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _Cloud2Power: 3
+    - _CloudPower: 1.5
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _SpecularOpacity: 1
-    - _isSpecularLayer: 1
+    - _Scale: 32
+    - _Scale2: 16
     m_Colors:
-    - _Color: {r: 0, g: 3.2111173, b: 2.223081, a: 1}
-    - _DeepShadow: {r: 0.037379846, g: 0.07625258, b: 0.5283019, a: 0}
-    - _Specular_Color: {r: 95.87453, g: 95.87453, b: 95.87453, a: 0}
+    - _Speed: {r: -0.05, g: -0.05, b: 0, a: 0}
+    - _Speed2: {r: -0.1, g: -0.1, b: 0, a: 0}
   m_BuildTextureStacks: []
---- !u!114 &3907936104333545462
+--- !u!114 &9103830823916208034
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
