@@ -487,6 +487,7 @@ GameObject:
   - component: {fileID: 852489827}
   - component: {fileID: 852489826}
   - component: {fileID: 852489831}
+  - component: {fileID: 852489832}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -621,6 +622,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &852489832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 852489825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68e845ce76eea694aabd54dd07d97b15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &898525808
 GameObject:
   m_ObjectHideFlags: 3
@@ -1143,6 +1156,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1499659801}
   - component: {fileID: 1499659802}
+  - component: {fileID: 1499659803}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1177,10 +1191,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de12bf62725f0164392eb6a0a1d8fe04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waves:
+  - enemyPrefab: {fileID: 879654921799001936, guid: 9f653a3640aa83b41b72ea1edc480d8c,
+      type: 3}
+    spawnTiming: 10
+    count: 1
+  - enemyPrefab: {fileID: 879654921799001936, guid: 9f653a3640aa83b41b72ea1edc480d8c,
+      type: 3}
+    spawnTiming: 20
+    count: 1
   minBoundary: {x: -200, y: 0, z: -200}
   maxBoundary: {x: 200, y: 0, z: 200}
   testEnemy: {fileID: 879654921799001936, guid: 9f653a3640aa83b41b72ea1edc480d8c,
     type: 3}
+--- !u!114 &1499659803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1499659800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0cee9b205b0b6744b0e01235cdf6390, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1886444958
 GameObject:
   m_ObjectHideFlags: 0

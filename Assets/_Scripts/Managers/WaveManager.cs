@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -5,6 +6,15 @@ using UnityEngine;
 
 public class WaveManager : MonoBehaviour
 {
+    [Serializable]
+    public struct Wave
+    {
+        public GameObject enemyPrefab;
+        public float spawnTiming;
+        public int count;
+    }
+
+    [SerializeField] List<Wave> waves;
     [SerializeField] Vector3 minBoundary;
     [SerializeField] Vector3 maxBoundary;
     [SerializeField] GameObject testEnemy;
@@ -12,11 +22,29 @@ public class WaveManager : MonoBehaviour
     private Vector3 randomPosition;
     private GameObject player;
 
+    private void OnEnable()
+    {
+        TimeManager.OnTimeSpentE += InstantiateOnTime;
+    }
+
+    private void OnDisable()
+    {
+        TimeManager.OnTimeSpentE -= InstantiateOnTime;
+    }
 
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         RandomizePoint();
+    }
+
+    private void InstantiateOnTime(float time)
+    {
+        foreach (Wave wave in waves)
+        {
+            if (wave.spawnTiming == time)
+                BatchSpawn(wave.enemyPrefab, wave.count);
+        }
     }
 
     [ContextMenu("Test Instantiate")]
@@ -37,10 +65,18 @@ public class WaveManager : MonoBehaviour
         yield return null;
     }
 
+    private void BatchSpawn(GameObject enemy, int spawnCount)
+    {
+        for (int i = 0; i < spawnCount; i++)
+        {
+            StartCoroutine(InstantiateEnemiesCoroutine(enemy));
+        }
+    }
+
     private void RandomizePoint()
     {
-        randomPosition = new Vector3(Random.Range(minBoundary.x, maxBoundary.x),
+        randomPosition = new Vector3(UnityEngine.Random.Range(minBoundary.x, maxBoundary.x),
                                      0f,
-                                     Random.Range(minBoundary.z, maxBoundary.z));
+                                     UnityEngine.Random.Range(minBoundary.z, maxBoundary.z));
     }
 }

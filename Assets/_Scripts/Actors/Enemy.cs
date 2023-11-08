@@ -8,11 +8,14 @@ public class Enemy : MonoBehaviour
     [SerializeField] float moveSpeed;
     [SerializeField] float health;
 
-    GameObject player;
+    Player player;
+    private bool canHit;
+    private float hitCooldown = 0.5f;
 
     private void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        canHit = true;
+        player = FindObjectOfType<Player>();
         StartCoroutine(MoveToPlayer());
     }
 
@@ -23,5 +26,26 @@ public class Enemy : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, player.transform.position, moveSpeed * Time.deltaTime);
             yield return null;
         }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject == player.gameObject)
+        {
+            if (canHit)
+            {
+                StartCoroutine(OnPlayerHit());
+            }
+        }
+    }
+
+    private IEnumerator OnPlayerHit()
+    {
+        Debug.Log("Hit Player");
+        canHit = false;
+
+        yield return new WaitForSeconds(0.5f);
+
+        canHit = true;
     }
 }
