@@ -70,12 +70,11 @@ public class WaveManager : MonoBehaviour
 
     private IEnumerator InstantiateOnTime()
     {
-        float randomInterval = UnityEngine.Random.Range(waves[currentWaveIndex].spawnCountMin, waves[currentWaveIndex].spawnCountMax);
-        yield return new WaitForSeconds(randomInterval);
+        yield return new WaitForSeconds(1f);
 
         while (isWaveRunning)
         {
-            randomInterval = UnityEngine.Random.Range(waves[currentWaveIndex].spawnCountMin, waves[currentWaveIndex].spawnCountMax);
+            float randomInterval = UnityEngine.Random.Range(waves[currentWaveIndex].spawnTimeIntervalMin, waves[currentWaveIndex].spawnTimeIntervalMax);
             yield return new WaitForSeconds(randomInterval);
 
             int randomSpawnCount = UnityEngine.Random.Range(waves[currentWaveIndex].spawnCountMin, waves[currentWaveIndex].spawnCountMax);
@@ -92,7 +91,6 @@ public class WaveManager : MonoBehaviour
         }
 
         //Instantiate(enemyPrefab);
-        Debug.Log(enemyPrefab.GetNameTag());
         var instantiatedEnemy = enemyPool[enemyPrefab.GetNameTag()].Get();
         instantiatedEnemy.transform.position = randomPosition;
         instantiatedEnemy.Init(KillEnemy);
@@ -107,6 +105,9 @@ public class WaveManager : MonoBehaviour
 
     private void BatchSpawn(Enemy enemy, int spawnCount)
     {
+        if (!isWaveRunning)
+            return;
+
         for (int i = 0; i < spawnCount; i++)
         {
             StartCoroutine(InstantiateEnemiesCoroutine(enemy));
@@ -120,7 +121,7 @@ public class WaveManager : MonoBehaviour
                                      UnityEngine.Random.Range(minBoundary.z, maxBoundary.z));
     }
 
-    private void OnWaveStart()
+    public void OnWaveStart()
     {
         isWaveRunning = true;
         StartCoroutine(InstantiateOnTime());
@@ -129,6 +130,7 @@ public class WaveManager : MonoBehaviour
     private void OnWaveEnd()
     {
         isWaveRunning = false;
+        StopCoroutine(InstantiateOnTime());
         currentWaveIndex++;
     }
 }

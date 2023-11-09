@@ -9,7 +9,7 @@ public class TimeManager : MonoBehaviour
     public static TimeDelegate OnTimeSpentE;
 
     [SerializeField] Text timerText;
-    [SerializeField] float maxTimer = 180f;
+    [SerializeField] float maxTimer = 20f;
     bool isGameRunning;
     float currentTime;
 

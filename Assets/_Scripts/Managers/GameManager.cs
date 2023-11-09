@@ -4,14 +4,31 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] GameObject clearWavePanel;
+
+    private void OnEnable()
+    {
+        GameplayEvents.OnWaveEndE += OnWaveClear;
+    }
+
+    private void OnDisable()
+    {
+        GameplayEvents.OnWaveEndE -= OnWaveClear;
+    }
+
     private void Start()
     {
         
     }
 
     [ContextMenu("Start Wave")]
-    private void StartWave()
+    public void StartWave()
     {
         GameplayEvents.OnWaveStart();
+    }
+
+    private void OnWaveClear()
+    {
+        clearWavePanel.SetActive(true);
     }
 }
