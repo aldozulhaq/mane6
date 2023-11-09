@@ -119,9 +119,10 @@ Material:
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
     - _Surface: 0
-    - _TailRotation: 0
+    - _TailRotation: 0.3
     - _WobbleAmount: 1
     - _WobbleFreq: 1
+    - _WobbleIntensity: 1
     - _WobbleSpeed: 5
     - _WobbleStrength: 1
     - _WorkflowMode: 1

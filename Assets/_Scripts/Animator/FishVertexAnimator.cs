@@ -7,12 +7,14 @@ public class FishVertexAnimator : MonoBehaviour
 {
     Renderer renderer => GetComponent<Renderer>();
 
-    public void adjustShaderParam(Vector2 playerDirAndSpeed)
+    public void animateTail(float playerspeed)
     {
-        float playerDir = playerDirAndSpeed.x;
-        float playerSpeed = Mathf.Clamp(playerDirAndSpeed.y, 5, 15);
+        float playerSpeedRemap = playerspeed.Remap(0, 15, 0, 1);
 
-        renderer.material.SetFloat("_TailRotation", playerDir);
+        float tailRot = Mathf.SmoothStep(0.3f,1,playerSpeedRemap);
+        renderer.material.SetFloat("_TailRotation", tailRot);
 
+        float wobbleIntensity = Mathf.SmoothStep(1, 3.5f, playerSpeedRemap);
+        renderer.material.SetFloat("_WobbleIntensity", wobbleIntensity);
     }
 }

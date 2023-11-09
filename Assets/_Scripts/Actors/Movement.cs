@@ -11,11 +11,10 @@ public class Movement : MonoBehaviour
     [SerializeField] float deceleration = 20f;
 
     [Header("Events")]
-    [SerializeField] Vec2EventChannel playerDirAndSpeed;
+    [SerializeField] FloatEventChannel playerSpeedChannel;
 
     Vector3 previousDir = Vector3.up;
     float currentMoveSpeed = 0f;
-    float currentTurningAngle = 0f;
 
     // Update is called once per frame
     void Update()
@@ -28,18 +27,11 @@ public class Movement : MonoBehaviour
         if(moveDir != Vector3.zero)
         {
             float targetAngle = Mathf.Atan2(moveDir.x, moveDir.z) * Mathf.Rad2Deg;
-            float prevAngle = Mathf.Atan2(previousDir.x, previousDir.z) * Mathf.Rad2Deg;
             Quaternion targetRotation = Quaternion.Euler(0f, targetAngle, 0f);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
 
-            if(Mathf.Abs(targetAngle - prevAngle) > 10f)
-            {
-                currentTurningAngle = Mathf.LerpAngle(prevAngle, targetAngle, rotationSpeed * Time.deltaTime);
-            }
-
             //Acceleration
             currentMoveSpeed = Mathf.MoveTowards(currentMoveSpeed, maxMoveSpeed, acceleration * Time.deltaTime);
-
             transform.Translate(moveDir * currentMoveSpeed * Time.deltaTime, Space.World);
 
             previousDir = moveDir;
@@ -50,7 +42,7 @@ public class Movement : MonoBehaviour
             currentMoveSpeed = Mathf.MoveTowards(currentMoveSpeed, 0f, deceleration * Time.deltaTime);
             transform.Translate(previousDir * currentMoveSpeed * Time.deltaTime, Space.World);
         }
-        //send rot and dir to animator
-        //playerDirAndSpeed.Invoke(new Vector2(combinedRot, currentMoveSpeed));
+        //send speedto animator
+        playerSpeedChannel.Invoke(currentMoveSpeed);
     }
 }
