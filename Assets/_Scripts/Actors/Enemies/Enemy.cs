@@ -6,43 +6,50 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] string nameTag;        // for object pool dictionary
-    [SerializeField] float moveSpeed;
-    [SerializeField] float health;
-    [SerializeField] float damage;
+    [SerializeField] protected string nameTag;        // for object pool dictionary
+    [SerializeField] protected float moveSpeed;
+    [SerializeField] protected float health;
+    [SerializeField] protected float damage;
+    [SerializeField] protected float attackRadius;
 
     Player player;
     private bool canHit;
-    private float hitCooldown = 0.5f;
+    private float hitCooldown = 1f;
 
     private Action<Enemy> deathAction;
 
-    private void OnEnable()
+    protected void OnEnable()
     {
         canHit = true;
         player = FindObjectOfType<Player>();
         StartCoroutine(MoveToPlayer());
     }
 
-    private IEnumerator MoveToPlayer()
+    private void Update()
+    {
+        transform.LookAt(player.transform);
+    }
+
+    protected IEnumerator MoveToPlayer()
     {
         while (true)
         {
+            if (Vector3.Distance(this.transform.position, player.transform.position) <= attackRadius)
+            {
+                AttackPlayer();
+                yield return new WaitForSeconds(hitCooldown);
+                continue;
+            }
+
             transform.position = Vector3.MoveTowards(transform.position, player.transform.position, moveSpeed * Time.deltaTime);
-            transform.LookAt(player.transform);
+
             yield return null;
         }
     }
 
-    private void OnTriggerStay(Collider other)
+    protected virtual void AttackPlayer()
     {
-        if (other.gameObject == player.gameObject)
-        {
-            if (canHit)
-            {
-                StartCoroutine(OnPlayerHit());
-            }
-        }
+        Debug.Log("Attacking Player");
     }
 
     private IEnumerator OnPlayerHit()
@@ -74,5 +81,11 @@ public class Enemy : MonoBehaviour
     public void Death()
     {
         deathAction(this);
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, attackRadius);
     }
 }
