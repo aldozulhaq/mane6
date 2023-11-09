@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -14,7 +15,9 @@ public class Enemy : MonoBehaviour
     private bool canHit;
     private float hitCooldown = 0.5f;
 
-    private void Start()
+    private Action<Enemy> deathAction;
+
+    private void OnEnable()
     {
         canHit = true;
         player = FindObjectOfType<Player>();
@@ -50,7 +53,7 @@ public class Enemy : MonoBehaviour
         yield return new WaitForSeconds(hitCooldown);
 
         canHit = true;
-    }
+    } 
 
     public void TakeDamage(float damage)
     {
@@ -60,5 +63,16 @@ public class Enemy : MonoBehaviour
     public string GetNameTag()
     {
         return nameTag;
+    }
+
+    public void Init(Action<Enemy> _deathAction)
+    {
+        deathAction = _deathAction;
+    }
+
+    [ContextMenu("Kill")]
+    public void Death()
+    {
+        deathAction(this);
     }
 }
