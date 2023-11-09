@@ -7,6 +7,11 @@ public class FishVertexAnimator : MonoBehaviour
 {
     Renderer renderer => GetComponent<Renderer>();
 
+    private void Start()
+    {
+        renderer.material.SetFloat("_RandomSeed", UnityEngine.Random.Range(0, 1000));
+    }
+
     public void animateTail(float playerspeed)
     {
         float playerSpeedRemap = playerspeed.Remap(0, 15, 0, 1);

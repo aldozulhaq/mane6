@@ -59,7 +59,7 @@ public class Movement : MonoBehaviour
         currentMoveSpeed = Mathf.MoveTowards(currentMoveSpeed, 0f, deceleration * Time.deltaTime);
         transform.Translate(previousDir * currentMoveSpeed * Time.deltaTime, Space.World);
     }
-
+    // Sends the current movement speed to the animator via an event channel.
     private void SendSpeedToAnimator()
     {
         playerSpeedChannel.Invoke(currentMoveSpeed);
