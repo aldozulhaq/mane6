@@ -16,33 +16,43 @@ public class Movement : MonoBehaviour
     Vector3 previousDir = Vector3.up;
     float currentMoveSpeed = 0f;
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        float horizontalMov = Input.GetAxisRaw("Horizontal");
-        float verticalMov = Input.GetAxisRaw("Vertical");
-        
-        Vector3 moveDir = new Vector3(horizontalMov, 0f, verticalMov).normalized;
+        StartCoroutine(MoveCoroutine());
+    }
 
-        if(moveDir != Vector3.zero)
+    private IEnumerator MoveCoroutine()
+    {
+        while (true)
         {
-            float targetAngle = Mathf.Atan2(moveDir.x, moveDir.z) * Mathf.Rad2Deg;
-            Quaternion targetRotation = Quaternion.Euler(0f, targetAngle, 0f);
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+            float horizontalMov = Input.GetAxisRaw("Horizontal");
+            float verticalMov = Input.GetAxisRaw("Vertical");
 
-            //Acceleration
-            currentMoveSpeed = Mathf.MoveTowards(currentMoveSpeed, maxMoveSpeed, acceleration * Time.deltaTime);
-            transform.Translate(moveDir * currentMoveSpeed * Time.deltaTime, Space.World);
+            Vector3 moveDir = new Vector3(horizontalMov, 0f, verticalMov).normalized;
 
-            previousDir = moveDir;
+            if (moveDir != Vector3.zero)
+            {
+                float targetAngle = Mathf.Atan2(moveDir.x, moveDir.z) * Mathf.Rad2Deg;
+                Quaternion targetRotation = Quaternion.Euler(0f, targetAngle, 0f);
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+
+                // Acceleration
+                currentMoveSpeed = Mathf.MoveTowards(currentMoveSpeed, maxMoveSpeed, acceleration * Time.deltaTime);
+                transform.Translate(moveDir * currentMoveSpeed * Time.deltaTime, Space.World);
+
+                previousDir = moveDir;
+            }
+            else
+            {
+                // Deceleration
+                currentMoveSpeed = Mathf.MoveTowards(currentMoveSpeed, 0f, deceleration * Time.deltaTime);
+                transform.Translate(previousDir * currentMoveSpeed * Time.deltaTime, Space.World);
+            }
+
+            // Send speed to animator
+            playerSpeedChannel.Invoke(currentMoveSpeed);
+
+            yield return null;
         }
-        else
-        {
-            //Deceleration
-            currentMoveSpeed = Mathf.MoveTowards(currentMoveSpeed, 0f, deceleration * Time.deltaTime);
-            transform.Translate(previousDir * currentMoveSpeed * Time.deltaTime, Space.World);
-        }
-        //send speedto animator
-        playerSpeedChannel.Invoke(currentMoveSpeed);
     }
 }
