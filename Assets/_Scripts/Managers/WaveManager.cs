@@ -3,13 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Pool;
 
 public class WaveManager : MonoBehaviour
 {
     [Serializable]
     public struct Wave
     {
-        public GameObject enemyPrefab;
+        public Enemy enemyPrefab;
         public float spawnTiming;
         public int count;
     }
@@ -17,10 +18,11 @@ public class WaveManager : MonoBehaviour
     [SerializeField] List<Wave> waves;
     [SerializeField] Vector3 minBoundary;
     [SerializeField] Vector3 maxBoundary;
-    [SerializeField] GameObject testEnemy;
+    [SerializeField] List<Enemy> enemiesPrefab;     // Input various type of enemies here
 
     private Vector3 randomPosition;
     private GameObject player;
+    private Dictionary<string, ObjectPool<Enemy>> enemyPool;
 
     private void OnEnable()
     {
@@ -34,6 +36,25 @@ public class WaveManager : MonoBehaviour
 
     private void Start()
     {
+        enemyPool = new Dictionary<string, ObjectPool<Enemy>>();
+        foreach (Enemy enemyPrefab in enemiesPrefab)
+        {
+            ObjectPool<Enemy> _objectPool = new ObjectPool<Enemy>(() =>
+                                               {
+                                                   return Instantiate(enemyPrefab);
+                                               }, enemy =>
+                                               {
+                                                   enemy.gameObject.SetActive(true);
+                                               }, enemy =>
+                                               {
+                                                   enemy.gameObject.SetActive(false);
+                                               }, enemy =>
+                                               {
+                                                   Destroy(enemy.gameObject);
+                                               }, false, 10, 100);
+            enemyPool.Add(enemyPrefab.GetNameTag(), _objectPool);
+        }
+
         player = GameObject.FindGameObjectWithTag("Player");
         RandomizePoint();
     }
@@ -47,13 +68,7 @@ public class WaveManager : MonoBehaviour
         }
     }
 
-    [ContextMenu("Test Instantiate")]
-    public void TestInstantiate()
-    {
-        StartCoroutine(InstantiateEnemiesCoroutine(testEnemy));
-    }
-
-    private IEnumerator InstantiateEnemiesCoroutine(GameObject enemyPrefab)
+    private IEnumerator InstantiateEnemiesCoroutine(Enemy enemyPrefab)
     {
         RandomizePoint();
         while (Vector3.Distance(randomPosition, player.transform.position) < 5f)
@@ -61,11 +76,19 @@ public class WaveManager : MonoBehaviour
             RandomizePoint();
         }
 
-        Instantiate(enemyPrefab, randomPosition, Quaternion.identity);
+        //Instantiate(enemyPrefab);
+        var instantiatedEnemy = enemyPool[enemyPrefab.GetNameTag()].Get();
+        instantiatedEnemy.transform.position = randomPosition;
         yield return null;
     }
 
-    private void BatchSpawn(GameObject enemy, int spawnCount)
+    private void KillEnemy(Enemy enemyPrefab)
+    {
+        enemyPool[enemyPrefab.GetNameTag()].Release(enemyPrefab);
+        //Destroy(enemy.gameObject);
+    }
+
+    private void BatchSpawn(Enemy enemy, int spawnCount)
     {
         for (int i = 0; i < spawnCount; i++)
         {

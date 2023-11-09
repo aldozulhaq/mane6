@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    [SerializeField] string nameTag;        // for object pool dictionary
     [SerializeField] float moveSpeed;
     [SerializeField] float health;
     [SerializeField] float damage;
@@ -54,5 +55,10 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(float damage)
     {
         health -= damage;
+    }
+
+    public string GetNameTag()
+    {
+        return nameTag;
     }
 }
