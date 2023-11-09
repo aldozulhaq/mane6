@@ -121,8 +121,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a04a51ed72696ca4c811888b2368b34f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nameTag: Test
   moveSpeed: 5
   health: 10
+  damage: 5
 --- !u!65 &4817505186237196926
 BoxCollider:
   m_ObjectHideFlags: 0

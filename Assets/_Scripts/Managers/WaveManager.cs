@@ -53,6 +53,7 @@ public class WaveManager : MonoBehaviour
                                                    Destroy(enemy.gameObject);
                                                }, false, 10, 100);
             enemyPool.Add(enemyPrefab.GetNameTag(), _objectPool);
+            Debug.Log(enemyPrefab.GetNameTag());
         }
 
         player = GameObject.FindGameObjectWithTag("Player");
@@ -77,8 +78,10 @@ public class WaveManager : MonoBehaviour
         }
 
         //Instantiate(enemyPrefab);
+        Debug.Log(enemyPrefab.GetNameTag());
         var instantiatedEnemy = enemyPool[enemyPrefab.GetNameTag()].Get();
         instantiatedEnemy.transform.position = randomPosition;
+        instantiatedEnemy.Init(KillEnemy);
         yield return null;
     }
 
