@@ -1,44 +1,59 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TimeManager : MonoBehaviour
 {
     public delegate void TimeDelegate(float currentTime);
     public static TimeDelegate OnTimeSpentE;
 
-    private float time;
-    private bool isRunning;
+    [SerializeField] Text timerText;
+    [SerializeField] float maxTimer = 180f;
+    bool isGameRunning;
+    float currentTime;
 
-    private void Start()
+    private void OnEnable()
     {
-        time = 0;
+        GameplayEvents.OnWaveStartE += StartCountdown;
+    }
+    private void OnDisable()
+    {
+        GameplayEvents.OnWaveStartE -= StartCountdown;
     }
 
-    [ContextMenu("Start Time")]
-    private void StartTime()
+    void StartCountdown()
     {
-        isRunning = true;
-        StartCoroutine(Stopwatch());
+        currentTime = maxTimer;
+        isGameRunning = true;
+        StartCoroutine(Countdown());
     }
 
-    private IEnumerator Stopwatch()
+    IEnumerator Countdown()
     {
-        while (isRunning)
+        while (currentTime > 0)
         {
-            time += 0.1f;
+            currentTime -= Time.deltaTime;
 
-            float roundedTime = Mathf.Round(time * 10.0f) * 0.1f;
-            OnTimeSpentE(roundedTime);
+            // Update UI
+            timerText.text = currentTime.ToString("F0");
 
-            yield return new WaitForSeconds(0.1f);
+            if (!isGameRunning)
+                yield break;
+
+            yield return null;
         }
+
+        // Ensure timer is 0
+        timerText.text = "0";
+
+        GameplayEvents.OnWaveEnd();
+        Debug.Log("Time's up");
     }
 
-    [ContextMenu("Stop Time")]
-    private void StopTimer()
+    private void StopCountdown()
     {
-        isRunning = false;
-        StopCoroutine(Stopwatch());
+        StopCoroutine(Countdown());
+        isGameRunning = false;
     }
 }

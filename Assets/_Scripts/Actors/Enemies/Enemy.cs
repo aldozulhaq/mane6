@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected float damage;
     [SerializeField] protected float attackRadius;
 
-    Player player;
+    protected Player player;
     private bool canHit;
     private float hitCooldown = 1f;
 
@@ -23,6 +23,13 @@ public class Enemy : MonoBehaviour
         canHit = true;
         player = FindObjectOfType<Player>();
         StartCoroutine(MoveToPlayer());
+
+        GameplayEvents.OnWaveEndE += Death;
+    }
+
+    protected void OnDisable()
+    {
+        GameplayEvents.OnWaveEndE -= Death;
     }
 
     private void Update()
