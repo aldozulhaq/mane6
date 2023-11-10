@@ -25,11 +25,12 @@ public class Player : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        damage = damage * (1 - PlayerStats.damageReducePercentage / 100); //reduce damage by damage reduction percentage
         health -= damage;
     }
 
-    void ApplyModifiers()
+    public void Heal(float amount)
     {
-        
+        Mathf.Clamp(health += amount, 0, PlayerStats.maxHealth); //clamp health between 0 and max health
     }
 }
