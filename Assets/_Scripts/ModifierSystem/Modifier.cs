@@ -42,9 +42,7 @@ public class Modifier : ScriptableObject
         return name;
     }
 
-    /// <summary>
-    /// Apply the modifiers to the PlayerStats.
-    /// </summary>
+    // Apply the modifiers to the PlayerStats.
     public void ApplyModifiers()
     {
         PlayerStats.ApplyModifiers(datas);
