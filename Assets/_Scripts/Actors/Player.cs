@@ -12,12 +12,6 @@ public class Player : MonoBehaviour
 
     [SerializeField] float IframeDuration = 0.5f;
 
-    [Header("Power Ups")]
-    [SerializeField] List<PowerUp> powerUps = new List<PowerUp>();
-
-    [Header("Modifiers")]
-    [SerializeField] List<Modifier> modifiers = new List<Modifier>();
-
     private void Start()
     {
         health = PlayerStats.maxHealth;

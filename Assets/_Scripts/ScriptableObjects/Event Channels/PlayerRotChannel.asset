@@ -9,6 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d86fcfacf5f47ef4fa45cb3b26dae1bf, type: 3}
-  m_Name: PlayerDirAndSpeed
+  m_Script: {fileID: 11500000, guid: 29589054d8ff28949a8bc1b679342fb7, type: 3}
+  m_Name: PlayerRotChannel
   m_EditorClassIdentifier: 

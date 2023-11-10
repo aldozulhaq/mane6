@@ -52,8 +52,9 @@ Material:
     - _isSpecularLayer: 1
     m_Colors:
     - _Color: {r: 0, g: 3.2111173, b: 2.223081, a: 1}
-    - _DeepShadow: {r: 0.037379846, g: 0.07625258, b: 0.5283019, a: 0}
-    - _Specular_Color: {r: 95.87453, g: 95.87453, b: 95.87453, a: 0}
+    - _DeepShadow: {r: 0.015574936, g: 0.64737743, b: 0.6603774, a: 0}
+    - _DeeperShadow: {r: 0.09803919, g: 0.30980387, b: 0.7176471, a: 1}
+    - _Specular_Color: {r: 4.2370954, g: 4.2370954, b: 4.2370954, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &3907936104333545462
 MonoBehaviour:

@@ -51,8 +51,9 @@ Material:
     - _SpecularOpacity: 1
     - _isSpecularLayer: 0
     m_Colors:
-    - _Color: {r: 0, g: 1.423212, b: 1.4980392, a: 0}
+    - _Color: {r: 0, g: 2.8549023, b: 2.9960785, a: 0}
     - _DeepShadow: {r: 0, g: 0.22448969, b: 1, a: 0}
+    - _DeeperShadow: {r: 0.04313724, g: 0.3181315, b: 0.58431375, a: 1}
     - _Specular_Color: {r: 8, g: 8, b: 8, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &3907936104333545462

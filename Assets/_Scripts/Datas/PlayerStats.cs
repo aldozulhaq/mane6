@@ -23,7 +23,7 @@ public class PlayerStats
         {
             switch (modifier.modifierType)
             {
-                case ModifierType.Health:
+                case ModifierType.MaxHealth:
                     ApplyModifier(ref maxHealth, modifier);
                     OnMaxHealthChanged?.Invoke(maxHealth); // Notify subscribers about the change
                     break;

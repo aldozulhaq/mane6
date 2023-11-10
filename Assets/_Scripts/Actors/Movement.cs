@@ -12,6 +12,11 @@ public class Movement : MonoBehaviour
 
     [Header("Events")]
     [SerializeField] FloatEventChannel playerSpeedChannel;
+    [SerializeField] FloatEventChannel playerRotationChannel;
+
+    [Header("Weapon Parents")]
+    public Transform FollowPos;
+    public Transform OrbitPos;
 
     Vector3 previousDir = Vector3.up;
     float currentMoveSpeed = 0f;
@@ -20,6 +25,7 @@ public class Movement : MonoBehaviour
     {
         HandleMovementInput();
         SendSpeedToAnimator();
+        playerRotationChannel.Invoke(transform.localEulerAngles.y);
     }
 
     private void HandleMovementInput()
@@ -50,14 +56,14 @@ public class Movement : MonoBehaviour
     private void ApplyAcceleration(Vector3 moveDir)
     {
         currentMoveSpeed = Mathf.MoveTowards(currentMoveSpeed, maxMoveSpeed, acceleration * Time.deltaTime);
-        transform.Translate(moveDir * currentMoveSpeed * Time.deltaTime, Space.World);
+        transform.parent.Translate(moveDir * currentMoveSpeed * Time.deltaTime, Space.World);
         previousDir = moveDir;
     }
 
     private void ApplyDeceleration()
     {
         currentMoveSpeed = Mathf.MoveTowards(currentMoveSpeed, 0f, deceleration * Time.deltaTime);
-        transform.Translate(previousDir * currentMoveSpeed * Time.deltaTime, Space.World);
+        transform.parent.Translate(previousDir * currentMoveSpeed * Time.deltaTime, Space.World);
     }
     // Sends the current movement speed to the animator via an event channel.
     private void SendSpeedToAnimator()

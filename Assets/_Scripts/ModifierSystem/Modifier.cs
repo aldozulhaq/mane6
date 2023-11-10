@@ -4,7 +4,7 @@ using UnityEngine;
 [System.Serializable]
 public enum ModifierType
 {
-    Health,
+    MaxHealth,
     MoveSpeed,
     Damage,
     AttackSpeed,
@@ -32,18 +32,18 @@ public struct ModifierData
 }
 
 [CreateAssetMenu(fileName = "New Modifier", menuName = "Modifier")]
-public class Modifier : ScriptableObject
+public class Modifier : ScriptableObject, IUsable
 {
     public Sprite sprite;
     public List<ModifierData> datas;
+    public string desc;
 
     public string GetName()
     {
         return name;
     }
 
-    // Apply the modifiers to the PlayerStats.
-    public void ApplyModifiers()
+    public void Use()
     {
         PlayerStats.ApplyModifiers(datas);
     }

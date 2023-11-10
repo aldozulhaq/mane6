@@ -7,7 +7,7 @@ public class FishVertexAnimator : MonoBehaviour
 {
     Renderer renderer => GetComponent<Renderer>();
 
-    private void Start()
+    private void Awake()
     {
         renderer.material.SetFloat("_RandomSeed", UnityEngine.Random.Range(0, 1000));
     }

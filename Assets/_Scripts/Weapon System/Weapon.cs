@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 
-public class PowerUp : ScriptableObject
+[CreateAssetMenu(fileName = "New Power Up", menuName = "Power Up")]
+public class Weapon : ScriptableObject
 {
     [SerializeField] string powerUpName;
     [SerializeField] string description;

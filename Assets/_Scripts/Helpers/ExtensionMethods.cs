@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using UnityEngine;
 
 public static class ExtensionMethods
@@ -9,6 +10,8 @@ public static class ExtensionMethods
 
     public static Vector3 WithX(this Vector3 vector, float x)
     {
+        Debug.Log("before: " + vector);
+        Debug.Log("after: " + x);
         return new Vector3(x, vector.y, vector.z);
     }
 
@@ -30,5 +33,20 @@ public static class ExtensionMethods
     public static Vector2 WithY(this Vector2 vector, float y)
     {
         return new Vector2(vector.x, y);
+    }
+
+    public static Vector3 AddX(this Vector3 vector, float x)
+    {
+        return new Vector3(vector.x + x, vector.y, vector.z);
+    }
+
+    public static Vector3 AddY(this Vector3 vector, float y)
+    {
+        return new Vector3(vector.x, vector.y + y, vector.z);
+    }
+
+    public static Vector3 AddZ(this Vector3 vector, float z)
+    {
+        return new Vector3(vector.x, vector.y, vector.z + z);
     }
 }
