@@ -2339,6 +2339,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1603186017}
   - component: {fileID: 1603186016}
+  - component: {fileID: 1603186018}
   m_Layer: 0
   m_Name: NPC_turtle_boss
   m_TagString: Untagged
@@ -2413,6 +2414,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &1603186018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1603186015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81f9408ae48cfb2418c893818d079235, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1661996415
 GameObject:
   m_ObjectHideFlags: 0
@@ -2581,6 +2594,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1741671083}
   - component: {fileID: 1741671082}
+  - component: {fileID: 1741671084}
   m_Layer: 0
   m_Name: NPC_koi_boss
   m_TagString: Untagged
@@ -2655,6 +2669,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &1741671084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1741671081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81f9408ae48cfb2418c893818d079235, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1744713474
 GameObject:
   m_ObjectHideFlags: 0
@@ -3000,6 +3026,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1968698374}
   - component: {fileID: 1968698373}
+  - component: {fileID: 1968698375}
   m_Layer: 0
   m_Name: NPC_turtle
   m_TagString: Untagged
@@ -3074,6 +3101,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &1968698375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1968698372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81f9408ae48cfb2418c893818d079235, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1976939853
 GameObject:
   m_ObjectHideFlags: 0
@@ -3084,6 +3123,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1976939855}
   - component: {fileID: 1976939854}
+  - component: {fileID: 1976939856}
   m_Layer: 0
   m_Name: NPC_stingray_boss
   m_TagString: Untagged
@@ -3158,6 +3198,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &1976939856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1976939853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81f9408ae48cfb2418c893818d079235, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1998301798
 GameObject:
   m_ObjectHideFlags: 0
