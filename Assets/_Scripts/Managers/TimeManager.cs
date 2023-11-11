@@ -5,9 +5,6 @@ using UnityEngine.UI;
 
 public class TimeManager : MonoBehaviour
 {
-    public delegate void TimeDelegate(float currentTime);
-    public static TimeDelegate OnTimeSpentE;
-
     [SerializeField] Text timerText;
     [SerializeField] float maxTimer = 20f;
     bool isGameRunning;

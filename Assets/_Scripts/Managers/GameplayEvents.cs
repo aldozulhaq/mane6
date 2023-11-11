@@ -7,6 +7,10 @@ public class GameplayEvents
 {
     public static event Action OnWaveStartE;
     public static event Action OnWaveEndE;
+    public static event Action OnEnemyDiedE;
+
+    public delegate void OnBulletHitDelegate(GameObject gameObject, float damage);
+    public static event OnBulletHitDelegate OnBulletHitE;
 
     public static void OnWaveStart()
     {
@@ -16,5 +20,15 @@ public class GameplayEvents
     public static void OnWaveEnd()
     {
         OnWaveEndE?.Invoke();
+    }
+
+    public static void OnBulletHit(GameObject gameObject, float damage)
+    {
+        OnBulletHitE?.Invoke(gameObject, damage);
+    }
+
+    public static void OnEnemyDied()
+    {
+        OnEnemyDiedE?.Invoke();
     }
 }

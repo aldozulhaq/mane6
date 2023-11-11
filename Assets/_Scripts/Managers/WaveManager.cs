@@ -60,7 +60,6 @@ public class WaveManager : MonoBehaviour
                                                    Destroy(enemy.gameObject);
                                                }, false, 10, 100);
             enemyPool.Add(enemyPrefab.GetNameTag(), _objectPool);
-            Debug.Log(enemyPrefab.GetNameTag());
         }
 
         player = GameObject.FindGameObjectWithTag("Player");
@@ -99,6 +98,7 @@ public class WaveManager : MonoBehaviour
 
     private void KillEnemy(Enemy enemyPrefab)
     {
+        Debug.Log(this);
         enemyPool[enemyPrefab.GetNameTag()].Release(enemyPrefab);
         //Destroy(enemy.gameObject);
     }

@@ -25,11 +25,13 @@ public class Enemy : MonoBehaviour
         StartCoroutine(MoveToPlayer());
 
         GameplayEvents.OnWaveEndE += Death;
+        GameplayEvents.OnBulletHitE += OnHitBullet;
     }
 
     protected void OnDisable()
     {
         GameplayEvents.OnWaveEndE -= Death;
+        GameplayEvents.OnBulletHitE -= OnHitBullet;
     }
 
     private void Update()
@@ -67,12 +69,15 @@ public class Enemy : MonoBehaviour
         yield return new WaitForSeconds(hitCooldown);
 
         canHit = true;
-    } 
+    }
 
     public void TakeDamage(float damage)
     {
         health -= damage;
-        
+        if (health <= 0f)
+        {
+            Death();
+        }
     }
 
     public string GetNameTag()
@@ -86,9 +91,15 @@ public class Enemy : MonoBehaviour
     }
 
     [ContextMenu("Kill")]
-    public void Death()
+    public virtual void Death()
     {
         deathAction(this);
+    }
+
+    private void OnHitBullet(GameObject target, float damage)
+    {
+        if (target == this.gameObject)
+            TakeDamage(damage);
     }
 
     private void OnDrawGizmosSelected()

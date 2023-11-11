@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] float damage;
+    float damage;
+
+    public void SetDamage(float _damage)
+    {
+        damage = _damage;
+    }
 
     private void OnParticleCollision(GameObject other)
     {
-        Enemy enemy = other.GetComponent<Enemy>();
-        Debug.Log(enemy);
-        if (enemy)
-        {
-            enemy.TakeDamage(damage);
-        }
+        Debug.Log("Hit " + other + " for " + damage);
+        GameplayEvents.OnBulletHit(other, damage);
     }
 }
