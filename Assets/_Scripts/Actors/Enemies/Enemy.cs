@@ -26,13 +26,6 @@ public class Enemy : MonoBehaviour
         canHit = true;
         player = FindObjectOfType<Player>();
         StartCoroutine(MoveToPlayer());
-
-        //GameplayEvents.OnWaveEndE += Death;
-    }
-
-    protected void OnDisable()
-    {
-        //GameplayEvents.OnWaveEndE -= Death;
     }
 
     private void Update()
@@ -60,16 +53,6 @@ public class Enemy : MonoBehaviour
     protected virtual void AttackPlayer()
     {
         Debug.Log("Attacking Player");
-    }
-
-    private IEnumerator OnPlayerHit()
-    {
-        player.TakeDamage(damage);
-        canHit = false;
-
-        yield return new WaitForSeconds(hitCooldown);
-
-        canHit = true;
     }
 
     public void TakeDamage(float damage)

@@ -16170,6 +16170,7 @@ GameObject:
   - component: {fileID: 852489832}
   - component: {fileID: 852489833}
   - component: {fileID: 852489834}
+  - component: {fileID: 852489835}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -16272,6 +16273,34 @@ MonoBehaviour:
       - m_Target: {fileID: 852489832}
         m_TargetAssemblyTypeName: Player, Assembly-CSharp
         m_MethodName: OnHitBullet
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &852489835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 852489825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abf7c990f01f63d429d25bfe004afef0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventChannel: {fileID: 11400000, guid: ded9e88159b308f4a87ecd3bc5362796, type: 2}
+  unityEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 852489832}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: LifeStealing
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

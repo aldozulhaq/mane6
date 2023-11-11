@@ -7,6 +7,6 @@ public class MeleeEnemy : Enemy
     protected override void AttackPlayer()
     {
         base.AttackPlayer();
-        player.TakeDamage(damage);
+        player.TakeDamage(new DamageData(player, damage));
     }
 }

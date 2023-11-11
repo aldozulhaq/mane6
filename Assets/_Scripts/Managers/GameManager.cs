@@ -11,11 +11,6 @@ public class GameManager : MonoBehaviour
 
     int enemiesKilled;
 
-    private void Start()
-    {
-        
-    }
-
     [ContextMenu("Start Wave")]
     public void StartWave()
     {

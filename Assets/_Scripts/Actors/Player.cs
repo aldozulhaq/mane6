@@ -24,12 +24,6 @@ public class Player : MonoBehaviour
         SetBulletDamage();
     }
 
-    public void TakeDamage(float damage)
-    {
-        damage = damage * (1 - PlayerStats.damageReducePercentage / 100); //reduce damage by damage reduction percentage
-        health -= damage;
-    }
-
     public void Heal(float amount)
     {
         Mathf.Clamp(health += amount, 0, PlayerStats.maxHealth); //clamp health between 0 and max health
@@ -43,13 +37,16 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void OnHitBullet(DamageData damageData)
+    public void TakeDamage(DamageData damageData)
     {
         if (damageData.target == this.gameObject)
-            TakeDamage(damageData.damage);
+        {
+            damage = damage * (1 - PlayerStats.damageReducePercentage / 100); //reduce damage by damage reduction percentage
+            health -= damage;
+        }
     }
 
-    private void LifeStealing(float damageOutput)
+    public void LifeStealing(float damageOutput)
     {
         // Calculate lifesteal
         float healthGet = damageOutput * (PlayerStats.lifeStealPercentage / 100);
