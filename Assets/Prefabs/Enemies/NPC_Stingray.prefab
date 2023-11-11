@@ -5010,7 +5010,7 @@ GameObject:
   - component: {fileID: 1417150162918941202}
   - component: {fileID: 618800822128943169}
   - component: {fileID: -4085047088728821823}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: NPC_Stingray
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5053,7 +5053,6 @@ MonoBehaviour:
   attackRadius: 30
   hitCooldown: 1
   OnEnemyHit: {fileID: 11400000, guid: ded9e88159b308f4a87ecd3bc5362796, type: 2}
-  bulletParticleSystem: {fileID: 5768701621826026186}
 --- !u!65 &1417150162918941202
 BoxCollider:
   m_ObjectHideFlags: 0

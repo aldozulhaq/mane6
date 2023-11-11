@@ -11,6 +11,7 @@ public class WaveManager : MonoBehaviour
     public struct Wave
     {
         public Enemy enemyPrefab;
+        public Enemy bossPrefab;
         public float spawnTimeIntervalMin;
         public float spawnTimeIntervalMax;
         
@@ -113,6 +114,10 @@ public class WaveManager : MonoBehaviour
     {
         isWaveRunning = true;
         StartCoroutine(InstantiateOnTime());
+
+        Enemy _boss = waves[currentWaveIndex].bossPrefab;
+        if (_boss != null)
+            StartCoroutine(InstantiateEnemiesCoroutine(_boss));
     }
 
     public void OnWaveEnd()

@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class RangedEnemy : Enemy
 {
-    [SerializeField] ParticleSystem bulletParticleSystem;
+    ParticleSystem[] bulletParticleSystems;
     Bullet[] bullets;
 
     private void Start()
     {
+        bulletParticleSystems = GetComponentsInChildren<ParticleSystem>();
         bullets = GetComponentsInChildren<Bullet>();
         SetBulletDamage(damage);
     }
@@ -16,7 +17,10 @@ public class RangedEnemy : Enemy
     protected override void AttackPlayer()
     {
         base.AttackPlayer();
-        bulletParticleSystem.Play();
+        foreach (ParticleSystem bulletParticle in bulletParticleSystems)
+        {
+            bulletParticle.Play();
+        }
     }
 
     public void SetBulletDamage(float damage)
