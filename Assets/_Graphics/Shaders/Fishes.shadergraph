@@ -974,8 +974,8 @@
     },
     "m_FragmentContext": {
         "m_Position": {
-            "x": 0.0,
-            "y": 200.0
+            "x": 0.00000286102294921875,
+            "y": 201.00001525878907
         },
         "m_Blocks": [
             {
@@ -991,7 +991,7 @@
     },
     "m_PreviewData": {
         "serializedMesh": {
-            "m_SerializedMesh": "{\"mesh\":{\"instanceID\":0}}",
+            "m_SerializedMesh": "{\"mesh\":{\"fileID\":10210,\"guid\":\"0000000000000000e000000000000000\",\"type\":0}}",
             "m_Guid": ""
         },
         "preventRotation": false
@@ -2374,7 +2374,7 @@
     "m_ObjectId": "3ee490369e844ff89cdb9c542f7f51fe",
     "m_Datas": [],
     "m_ActiveSubTarget": {
-        "m_Id": "ebf55cc215c243b591bedae36a9e740b"
+        "m_Id": "59517639637442e29d8c9c259c2eaf6f"
     },
     "m_AllowMaterialOverride": false,
     "m_SurfaceType": 0,
@@ -2382,8 +2382,8 @@
     "m_ZWriteControl": 0,
     "m_AlphaMode": 0,
     "m_RenderFace": 0,
-    "m_AlphaClip": true,
-    "m_CastShadows": true,
+    "m_AlphaClip": false,
+    "m_CastShadows": false,
     "m_ReceiveShadows": true,
     "m_SupportsLODCrossFade": false,
     "m_CustomEditorGUI": "",
@@ -3014,6 +3014,12 @@
     "m_Value": 0.0,
     "m_DefaultValue": 0.0,
     "m_Labels": []
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.Rendering.Universal.ShaderGraph.UniversalSpriteUnlitSubTarget",
+    "m_ObjectId": "59517639637442e29d8c9c259c2eaf6f"
 }
 
 {
@@ -6513,12 +6519,6 @@
         "z": 0.0,
         "w": 0.0
     }
-}
-
-{
-    "m_SGVersion": 2,
-    "m_Type": "UnityEditor.Rendering.Universal.ShaderGraph.UniversalUnlitSubTarget",
-    "m_ObjectId": "ebf55cc215c243b591bedae36a9e740b"
 }
 
 {

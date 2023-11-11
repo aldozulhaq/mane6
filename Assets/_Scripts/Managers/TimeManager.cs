@@ -5,13 +5,13 @@ using UnityEngine.UI;
 
 public class TimeManager : MonoBehaviour
 {
-    [SerializeField] Text timerText;
     [SerializeField] float maxTimer = 20f;
     bool isGameRunning;
     float currentTime;
 
     [Header("Event Channels")]
     [SerializeField] EventChannel onWaveEnd;
+    [SerializeField] FloatEventChannel onTimerUpdate;
 
     public void StartCountdown()
     {
@@ -27,7 +27,7 @@ public class TimeManager : MonoBehaviour
             currentTime -= Time.deltaTime;
 
             // Update UI
-            timerText.text = currentTime.ToString("F0");
+            onTimerUpdate.Invoke(currentTime);
 
             if (!isGameRunning)
                 yield break;
@@ -36,7 +36,7 @@ public class TimeManager : MonoBehaviour
         }
 
         // Ensure timer is 0
-        timerText.text = "0";
+        onTimerUpdate.Invoke(0);
 
         onWaveEnd.Invoke();
         Debug.Log("Time's up");

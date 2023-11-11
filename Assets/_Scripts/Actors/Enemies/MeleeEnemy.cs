@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class MeleeEnemy : Enemy
 {
+    [Header("Event Channel")]
+    [SerializeField] DamageChannel damageChannel;
+
     protected override void AttackPlayer()
     {
         base.AttackPlayer();
-        player.TakeDamage(new DamageData(player, damage));
+        damageChannel.Invoke(new DamageData(player, damage));
     }
 }

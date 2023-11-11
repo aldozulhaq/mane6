@@ -151,7 +151,7 @@ MonoBehaviour:
   damage: 5
   attackRadius: 10
   hitCooldown: 1
-  OnEnemyHit: {fileID: 11400000, guid: ded9e88159b308f4a87ecd3bc5362796, type: 2}
+  damageChannel: {fileID: 11400000, guid: c6ed346614fe72444996fed58322e15f, type: 2}
 --- !u!65 &8825045254581268953
 BoxCollider:
   m_ObjectHideFlags: 0

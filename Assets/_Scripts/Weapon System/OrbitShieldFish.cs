@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,6 +16,7 @@ public class OrbitShieldFish : MonoBehaviour
         originalColor = spriteRenderer.material.color;
     }
 
+
     public void TakeHit(float damage)
     {
         StartCoroutine(OnTakingHit());
@@ -24,32 +26,9 @@ public class OrbitShieldFish : MonoBehaviour
     private IEnumerator OnTakingHit()
     {
         GetComponent<Collider>().enabled = false;
-        StartCoroutine(FadeInBlack());
-        yield return new WaitForSeconds(cooldown);
-        StartCoroutine(FadeToOriginalColor());
+        spriteRenderer.material.DOColor(Color.black, 0.5f); //turn black
+        yield return new WaitForSeconds(cooldown); // cooldown
+        spriteRenderer.material.DOColor(originalColor, 0.5f); //turn back to original color
         GetComponent<Collider>().enabled = true;
-    }
-
-    // Animate color to black
-    IEnumerator FadeInBlack()
-    {
-        float t = 0;
-        while (t < 1)
-        {
-            t += Time.deltaTime;
-            spriteRenderer.material.color = Color.Lerp(originalColor, Color.black, t);
-            yield return null;
-        }
-    }
-
-    IEnumerator FadeToOriginalColor()
-    {
-        float t = 0;
-        while (t < 1)
-        {
-            t += Time.deltaTime;
-            spriteRenderer.material.color = Color.Lerp(Color.black, originalColor, t);
-            yield return null;
-        }
     }
 }

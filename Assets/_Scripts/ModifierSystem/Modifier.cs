@@ -13,7 +13,8 @@ public enum ModifierType
     LifeSteal,
     DamageReduction,
     FireRate,
-    PointsGain
+    PointsGain,
+    ShooterProjectileAmount
 }
 
 [System.Serializable]

@@ -5,6 +5,7 @@ using UnityEngine;
 public class OrbitShield : MonoBehaviour, IWeapon
 {
     public int level = 1;
+    public int maxLevel = 4;
 
     [SerializeField] GameObject orbitShieldFishPrefab;
     Color originalColor;
@@ -12,12 +13,6 @@ public class OrbitShield : MonoBehaviour, IWeapon
     void Update()
     {
         transform.RotateAround(transform.parent.position, Vector3.up, 100 * Time.deltaTime);
-
-        //level up press space
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            LevelUp();
-        }
     }
 
     public void LevelUp()

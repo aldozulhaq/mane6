@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] DamageChannel damageChannel;
-    float damage;
+    [SerializeField] protected DamageChannel damageChannel;
+    protected float damage;
 
     public void SetDamage(float _damage)
     {
         damage = _damage;
     }
 
-    private void OnParticleCollision(GameObject other)
+    protected virtual void OnParticleCollision(GameObject other)
     {
-        damageChannel.Invoke(new DamageData { target = other, damage = damage });
+        Debug.Log("Hit " + other + " for " + damage);
+        damageChannel.Invoke(new DamageData(other,damage));
     }
 }

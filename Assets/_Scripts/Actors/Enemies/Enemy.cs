@@ -13,9 +13,6 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected float attackRadius;
     [SerializeField] protected float hitCooldown = 1f;
 
-    [Header("Event Channel")]
-    [SerializeField] FloatEventChannel OnEnemyHit;
-
     protected Player player;
 
     private Action<Enemy> deathAction;
@@ -82,8 +79,6 @@ public class Enemy : MonoBehaviour
     {
         if (damageData.target == this.gameObject)
             TakeDamage(damageData.damage);
-
-        OnEnemyHit.Invoke(damageData.damage);
     }
 
     private void OnDrawGizmosSelected()

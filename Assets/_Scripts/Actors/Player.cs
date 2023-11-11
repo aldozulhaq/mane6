@@ -29,7 +29,7 @@ public class Player : MonoBehaviour
         Mathf.Clamp(health += amount, 0, PlayerStats.maxHealth); //clamp health between 0 and max health
     }
 
-    public void SetBulletDamage()           // Call this everytime player got attack modifier
+    public void SetBulletDamage()           // Call this everytime player got damage modifier
     {
         foreach (Bullet bullet in bullets)
         {

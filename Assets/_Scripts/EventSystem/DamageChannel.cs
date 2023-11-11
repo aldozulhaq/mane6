@@ -11,6 +11,13 @@ public struct DamageData
         target = player.gameObject;
         this.damage = damage;
     }
+
+    // Constructor for enemy taking damage
+    public DamageData(GameObject target, float damage) : this()
+    {
+        this.target = target;
+        this.damage = damage;
+    }
 }
 
 [CreateAssetMenu(menuName = "Event Channel/DamageEventChannel")]

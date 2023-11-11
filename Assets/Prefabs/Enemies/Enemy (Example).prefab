@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 7445155638600551384}
   - component: {fileID: 7670019337899732992}
   - component: {fileID: 526045535403561510}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enemy (Example)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -128,7 +128,6 @@ MonoBehaviour:
   health: 10
   damage: 5
   attackRadius: 0
-  OnEnemyHit: {fileID: 11400000, guid: ded9e88159b308f4a87ecd3bc5362796, type: 2}
 --- !u!65 &4817505186237196926
 BoxCollider:
   m_ObjectHideFlags: 0
