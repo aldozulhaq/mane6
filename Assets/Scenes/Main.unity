@@ -2546,6 +2546,7 @@ GameObject:
   - component: {fileID: 1499659805}
   - component: {fileID: 1499659806}
   - component: {fileID: 1499659807}
+  - component: {fileID: 1499659808}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2581,28 +2582,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - enemyPrefab: {fileID: -544812839304950778, guid: 60e6935c90547f34eac81e106b066d79,
-      type: 3}
+  - enemyPrefabs:
+    - {fileID: -544812839304950778, guid: 60e6935c90547f34eac81e106b066d79, type: 3}
     bossPrefab: {fileID: 0}
-    spawnTimeIntervalMin: 2
-    spawnTimeIntervalMax: 5
-    spawnCountMin: 3
-    spawnCountMax: 5
-  - enemyPrefab: {fileID: -544812839304950778, guid: 60e6935c90547f34eac81e106b066d79,
-      type: 3}
+    spawnCount: 11
+  - enemyPrefabs: []
     bossPrefab: {fileID: 0}
-    spawnTimeIntervalMin: 2
-    spawnTimeIntervalMax: 5
-    spawnCountMin: 5
-    spawnCountMax: 10
-  - enemyPrefab: {fileID: -544812839304950778, guid: 60e6935c90547f34eac81e106b066d79,
-      type: 3}
+    spawnCount: 0
+  - enemyPrefabs: []
     bossPrefab: {fileID: 4504050560458858333, guid: 9be86d982ceb5714da929ad879cf9246,
       type: 3}
-    spawnTimeIntervalMin: 7
-    spawnTimeIntervalMax: 15
-    spawnCountMin: 5
-    spawnCountMax: 10
+    spawnCount: 0
   minBoundary: {x: -90, y: 0, z: -90}
   maxBoundary: {x: 90, y: 0, z: 90}
   enemiesPrefab:
@@ -2613,6 +2603,8 @@ MonoBehaviour:
   - {fileID: 2531097444244231189, guid: 1768ae8a0ae9bab40a73648e78b2454d, type: 3}
   - {fileID: 6800747535897039075, guid: faa50b28bf24cf743b856eb09a9fc578, type: 3}
   - {fileID: 987825293588172836, guid: 3d897489a5e218b4889d678b6bbb6e99, type: 3}
+  onWaveEnd: {fileID: 11400000, guid: 0f667e842cd373b48858d931c85b8d51, type: 2}
+  onEnemyDie: {fileID: 11400000, guid: c1d75b5bb4f431e4ead520fac2b1ec75, type: 2}
 --- !u!114 &1499659803
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2625,7 +2617,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0cee9b205b0b6744b0e01235cdf6390, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxTimer: 30
+  maxTimer: 120
   onWaveEnd: {fileID: 11400000, guid: 0f667e842cd373b48858d931c85b8d51, type: 2}
   onTimerUpdate: {fileID: 11400000, guid: 826c160b12b866d4795b39afbff7f0fe, type: 2}
 --- !u!114 &1499659804
@@ -2731,6 +2723,34 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1499659808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1499659800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: daf2caec072d05a4e8c192aa878581b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventChannel: {fileID: 11400000, guid: c1d75b5bb4f431e4ead520fac2b1ec75, type: 2}
+  unityEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1499659804}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: AddEnemiesKilled
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0

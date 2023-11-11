@@ -10,13 +10,14 @@ public class WaveManager : MonoBehaviour
     [Serializable]
     public struct Wave
     {
-        public Enemy enemyPrefab;
+        public Enemy[] enemyPrefabs;
         public Enemy bossPrefab;
-        public float spawnTimeIntervalMin;
-        public float spawnTimeIntervalMax;
+        public int spawnCount;
+        //public float spawnTimeIntervalMin;
+        //public float spawnTimeIntervalMax;
         
-        public int spawnCountMin;
-        public int spawnCountMax;
+        //public int spawnCountMin;
+        //public int spawnCountMax;
     }
 
     [SerializeField] List<Wave> waves;
@@ -24,11 +25,17 @@ public class WaveManager : MonoBehaviour
     [SerializeField] Vector3 maxBoundary;
     [SerializeField] List<Enemy> enemiesPrefab;     // Input various type of enemies here
 
+    [Header("Event Channels")]
+    [SerializeField] EventChannel onWaveEnd;
+    [SerializeField] IntEventChannel onEnemyDie;
+
     private int currentWaveIndex;
     private Vector3 randomPosition;
     private GameObject player;
     private Dictionary<string, ObjectPool<Enemy>> enemyPool;
     private bool isWaveRunning;
+    private int instantiatedEnemies = 0;
+    private int enemiesKilled;
 
     private void Start()
     {
@@ -58,15 +65,22 @@ public class WaveManager : MonoBehaviour
 
     private IEnumerator InstantiateOnTime()
     {
+        int currentWaveEnemiesCount = waves[currentWaveIndex].spawnCount;
         yield return new WaitForSeconds(1f);
 
-        while (isWaveRunning)
+        while (instantiatedEnemies < currentWaveEnemiesCount)
         {
-            float randomInterval = UnityEngine.Random.Range(waves[currentWaveIndex].spawnTimeIntervalMin, waves[currentWaveIndex].spawnTimeIntervalMax);
-            yield return new WaitForSeconds(randomInterval);
+            /*float randomInterval = UnityEngine.Random.Range(waves[currentWaveIndex].spawnTimeIntervalMin, waves[currentWaveIndex].spawnTimeIntervalMax);
+            yield return new WaitForSeconds(randomInterval);*/
 
-            int randomSpawnCount = UnityEngine.Random.Range(waves[currentWaveIndex].spawnCountMin, waves[currentWaveIndex].spawnCountMax);
-            BatchSpawn(waves[currentWaveIndex].enemyPrefab, randomSpawnCount);
+            //int randomSpawnCount = UnityEngine.Random.Range(waves[currentWaveIndex].spawnCountMin, waves[currentWaveIndex].spawnCountMax);
+            //BatchSpawn(waves[currentWaveIndex].enemyPrefab, randomSpawnCount);
+
+            int randomEnemiesIndex = UnityEngine.Random.Range(0, waves[currentWaveIndex].enemyPrefabs.Length);
+            Debug.Log(randomEnemiesIndex);
+            StartCoroutine(InstantiateEnemiesCoroutine(waves[currentWaveIndex].enemyPrefabs[randomEnemiesIndex]));
+
+            yield return new WaitForSeconds(1f);
         }
     }
 
@@ -82,14 +96,21 @@ public class WaveManager : MonoBehaviour
         var instantiatedEnemy = enemyPool[enemyPrefab.GetNameTag()].Get();
         instantiatedEnemy.transform.position = randomPosition;
         instantiatedEnemy.Init(KillEnemy);
+        instantiatedEnemies++;
         yield return null;
     }
 
     private void KillEnemy(Enemy enemyPrefab)
     {
-        Debug.Log(this);
         enemyPool[enemyPrefab.GetNameTag()].Release(enemyPrefab);
+        enemiesKilled++;
+        onEnemyDie.Invoke();
+
         //Destroy(enemy.gameObject);
+        if (enemiesKilled >= waves[currentWaveIndex].spawnCount)
+        {
+            onWaveEnd.Invoke();
+        }
     }
 
     private void BatchSpawn(Enemy enemy, int spawnCount)
@@ -112,6 +133,8 @@ public class WaveManager : MonoBehaviour
 
     public void OnWaveStart()
     {
+        enemiesKilled = 0;
+        instantiatedEnemies = 0;
         isWaveRunning = true;
         StartCoroutine(InstantiateOnTime());
 

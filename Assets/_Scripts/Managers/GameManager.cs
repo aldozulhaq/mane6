@@ -22,8 +22,8 @@ public class GameManager : MonoBehaviour
         clearWavePanel.SetActive(true);
     }
 
-    private void AddEnemiesKilled()
+    public void AddEnemiesKilled(int count)
     {
-        enemiesKilled++;
+        enemiesKilled += count;
     }
 }

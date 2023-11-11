@@ -147,8 +147,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameTag: Koi Boss
   moveSpeed: 7
-  health: 50
-  damage: 5
+  health: 20
+  damage: 20
   attackRadius: 10
   hitCooldown: 1
   damageChannel: {fileID: 11400000, guid: c6ed346614fe72444996fed58322e15f, type: 2}
