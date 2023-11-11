@@ -14,7 +14,6 @@ public class Bullet : MonoBehaviour
 
     private void OnParticleCollision(GameObject other)
     {
-        Debug.Log("Hit " + other + " for " + damage);
         damageChannel.Invoke(new DamageData { target = other, damage = damage });
     }
 }

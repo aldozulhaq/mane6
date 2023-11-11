@@ -97,8 +97,8 @@ GameObject:
   - component: {fileID: 525580967588289742}
   - component: {fileID: 8896624880010810616}
   - component: {fileID: 1541452130658732377}
-  m_Layer: 0
-  m_Name: Koi
+  m_Layer: 7
+  m_Name: NPC_Koi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -137,6 +137,7 @@ MonoBehaviour:
   health: 5
   damage: 1
   attackRadius: 1
+  hitCooldown: 1
   OnEnemyHit: {fileID: 11400000, guid: ded9e88159b308f4a87ecd3bc5362796, type: 2}
 --- !u!65 &525580967588289742
 BoxCollider:

@@ -11,19 +11,17 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected float health;
     [SerializeField] protected float damage;
     [SerializeField] protected float attackRadius;
+    [SerializeField] protected float hitCooldown = 1f;
 
     [Header("Event Channel")]
     [SerializeField] FloatEventChannel OnEnemyHit;
 
     protected Player player;
-    private bool canHit;
-    private float hitCooldown = 1f;
 
     private Action<Enemy> deathAction;
 
-    protected void OnEnable()
+    protected virtual void OnEnable()
     {
-        canHit = true;
         player = FindObjectOfType<Player>();
         StartCoroutine(MoveToPlayer());
     }
@@ -33,7 +31,7 @@ public class Enemy : MonoBehaviour
         transform.LookAt(player.transform);
     }
 
-    protected IEnumerator MoveToPlayer()
+    protected virtual IEnumerator MoveToPlayer()
     {
         while (true)
         {

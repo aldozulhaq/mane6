@@ -18,6 +18,7 @@ public class RangedEnemy : Enemy
         base.AttackPlayer();
         bulletParticleSystem.Play();
     }
+
     public void SetBulletDamage(float damage)
     {
         foreach (Bullet bullet in bullets)
