@@ -5,18 +5,11 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] GameObject clearWavePanel;
+
+    [Header("Event Channels")]
+    [SerializeField] EventChannel onWaveStart;
+
     int enemiesKilled;
-    private void OnEnable()
-    {
-        GameplayEvents.OnWaveEndE += OnWaveClear;
-
-        enemiesKilled = 0;
-    }
-
-    private void OnDisable()
-    {
-        GameplayEvents.OnWaveEndE -= OnWaveClear;
-    }
 
     private void Start()
     {
@@ -26,10 +19,10 @@ public class GameManager : MonoBehaviour
     [ContextMenu("Start Wave")]
     public void StartWave()
     {
-        GameplayEvents.OnWaveStart();
+        onWaveStart.Invoke();
     }
 
-    private void OnWaveClear()
+    public void OnWaveClear()
     {
         clearWavePanel.SetActive(true);
     }

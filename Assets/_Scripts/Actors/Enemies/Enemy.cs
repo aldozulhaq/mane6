@@ -12,6 +12,9 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected float damage;
     [SerializeField] protected float attackRadius;
 
+    [Header("Event Channel")]
+    [SerializeField] FloatEventChannel OnEnemyHit;
+
     protected Player player;
     private bool canHit;
     private float hitCooldown = 1f;
@@ -24,14 +27,12 @@ public class Enemy : MonoBehaviour
         player = FindObjectOfType<Player>();
         StartCoroutine(MoveToPlayer());
 
-        GameplayEvents.OnWaveEndE += Death;
-        GameplayEvents.OnBulletHitE += OnHitBullet;
+        //GameplayEvents.OnWaveEndE += Death;
     }
 
     protected void OnDisable()
     {
-        GameplayEvents.OnWaveEndE -= Death;
-        GameplayEvents.OnBulletHitE -= OnHitBullet;
+        //GameplayEvents.OnWaveEndE -= Death;
     }
 
     private void Update()
@@ -96,21 +97,12 @@ public class Enemy : MonoBehaviour
         deathAction(this);
     }
 
-    private void OnHitBullet(GameObject target, float damage)
+    public void OnHitBullet(DamageData damageData)
     {
-        if (target == this.gameObject)
-        {
-            // Calculate crit
-            if (UnityEngine.Random.value < PlayerStats.critDamagePercentage)
-            {
-                // calculate crit damage
-                damage *= PlayerStats.critDamagePercentage;
-            }
+        if (damageData.target == this.gameObject)
+            TakeDamage(damageData.damage);
 
-            TakeDamage(damage);
-        }
-
-        GameplayEvents.OnEnemyHit(damage);
+        OnEnemyHit.Invoke(damageData.damage);
     }
 
     private void OnDrawGizmosSelected()

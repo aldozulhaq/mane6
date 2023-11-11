@@ -10,16 +10,10 @@ public class TimeManager : MonoBehaviour
     bool isGameRunning;
     float currentTime;
 
-    private void OnEnable()
-    {
-        GameplayEvents.OnWaveStartE += StartCountdown;
-    }
-    private void OnDisable()
-    {
-        GameplayEvents.OnWaveStartE -= StartCountdown;
-    }
+    [Header("Event Channels")]
+    [SerializeField] EventChannel onWaveEnd;
 
-    void StartCountdown()
+    public void StartCountdown()
     {
         currentTime = maxTimer;
         isGameRunning = true;
@@ -44,7 +38,7 @@ public class TimeManager : MonoBehaviour
         // Ensure timer is 0
         timerText.text = "0";
 
-        GameplayEvents.OnWaveEnd();
+        onWaveEnd.Invoke();
         Debug.Log("Time's up");
     }
 

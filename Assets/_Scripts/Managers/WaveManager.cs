@@ -29,18 +29,6 @@ public class WaveManager : MonoBehaviour
     private Dictionary<string, ObjectPool<Enemy>> enemyPool;
     private bool isWaveRunning;
 
-    private void OnEnable()
-    {
-        GameplayEvents.OnWaveStartE += OnWaveStart;
-        GameplayEvents.OnWaveEndE += OnWaveEnd;
-    }
-
-    private void OnDisable()
-    {
-        GameplayEvents.OnWaveStartE -= OnWaveStart;
-        GameplayEvents.OnWaveEndE -= OnWaveEnd;
-    }
-
     private void Start()
     {
         enemyPool = new Dictionary<string, ObjectPool<Enemy>>();
@@ -127,7 +115,7 @@ public class WaveManager : MonoBehaviour
         StartCoroutine(InstantiateOnTime());
     }
 
-    private void OnWaveEnd()
+    public void OnWaveEnd()
     {
         isWaveRunning = false;
         StopCoroutine(InstantiateOnTime());

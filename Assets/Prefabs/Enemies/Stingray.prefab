@@ -4899,6 +4899,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c95ad8e93c8bcc4ba8b2d24f206cdfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageChannel: {fileID: 11400000, guid: c6ed346614fe72444996fed58322e15f, type: 2}
 --- !u!1 &8148161554299066534
 GameObject:
   m_ObjectHideFlags: 0
@@ -5007,6 +5008,8 @@ GameObject:
   - component: {fileID: 2481640220022056311}
   - component: {fileID: 421654500822919371}
   - component: {fileID: 1417150162918941202}
+  - component: {fileID: 618800822128943169}
+  - component: {fileID: -4085047088728821823}
   m_Layer: 0
   m_Name: Stingray
   m_TagString: Untagged
@@ -5048,6 +5051,7 @@ MonoBehaviour:
   health: 20
   damage: 1
   attackRadius: 30
+  OnEnemyHit: {fileID: 11400000, guid: ded9e88159b308f4a87ecd3bc5362796, type: 2}
   bulletParticleSystem: {fileID: 5768701621826026186}
 --- !u!65 &1417150162918941202
 BoxCollider:
@@ -5070,3 +5074,59 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 8.8133335, y: 2.262094, z: 8.315839}
   m_Center: {x: 0, y: -0.004926443, z: 0.83418417}
+--- !u!114 &618800822128943169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9017992215410533124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 072fd51dbceb44247af24440e04f1e93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventChannel: {fileID: 11400000, guid: c6ed346614fe72444996fed58322e15f, type: 2}
+  unityEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 421654500822919371}
+        m_TargetAssemblyTypeName: Enemy, Assembly-CSharp
+        m_MethodName: OnHitBullet
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &-4085047088728821823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9017992215410533124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 093dc73e7da2645488309397ab2a1e02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventChannel: {fileID: 11400000, guid: 0f667e842cd373b48858d931c85b8d51, type: 2}
+  unityEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 421654500822919371}
+        m_TargetAssemblyTypeName: Enemy, Assembly-CSharp
+        m_MethodName: Death
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

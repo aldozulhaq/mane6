@@ -20,6 +20,7 @@ public abstract class EventListener<T> : MonoBehaviour
     {
         unityEvent?.Invoke(value);
     }
+
 }
 
 public class EventListener : EventListener<Empty> { }

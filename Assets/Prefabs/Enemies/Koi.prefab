@@ -95,6 +95,8 @@ GameObject:
   - component: {fileID: 3306645543792012803}
   - component: {fileID: -544812839304950778}
   - component: {fileID: 525580967588289742}
+  - component: {fileID: 8896624880010810616}
+  - component: {fileID: 1541452130658732377}
   m_Layer: 0
   m_Name: Koi
   m_TagString: Untagged
@@ -135,6 +137,7 @@ MonoBehaviour:
   health: 5
   damage: 1
   attackRadius: 1
+  OnEnemyHit: {fileID: 11400000, guid: ded9e88159b308f4a87ecd3bc5362796, type: 2}
 --- !u!65 &525580967588289742
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -156,3 +159,59 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 5.8607736, y: 2.13988, z: 6.590164}
   m_Center: {x: 0, y: 0.0074197054, z: 0.09996426}
+--- !u!114 &8896624880010810616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8601680139173987120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 072fd51dbceb44247af24440e04f1e93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventChannel: {fileID: 11400000, guid: c6ed346614fe72444996fed58322e15f, type: 2}
+  unityEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -544812839304950778}
+        m_TargetAssemblyTypeName: Enemy, Assembly-CSharp
+        m_MethodName: OnHitBullet
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1541452130658732377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8601680139173987120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 093dc73e7da2645488309397ab2a1e02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventChannel: {fileID: 11400000, guid: 0f667e842cd373b48858d931c85b8d51, type: 2}
+  unityEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -544812839304950778}
+        m_TargetAssemblyTypeName: Enemy, Assembly-CSharp
+        m_MethodName: Death
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

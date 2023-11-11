@@ -16,17 +16,6 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject bulletParent;
     Bullet[] bullets;
 
-    private void OnEnable()
-    {
-        GameplayEvents.OnBulletHitE += OnHitBullet;
-        GameplayEvents.OnEnemyHitE += LifeStealing;
-    }
-    private void OnDisable()
-    {
-        GameplayEvents.OnBulletHitE -= OnHitBullet;
-        GameplayEvents.OnEnemyHitE -= LifeStealing;
-    }
-
     private void Start()
     {
         bullets = bulletParent.GetComponentsInChildren<Bullet>();
@@ -54,10 +43,10 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void OnHitBullet(GameObject target, float _damage)
+    public void OnHitBullet(DamageData damageData)
     {
-        if (target == this.gameObject)
-            TakeDamage(damage);
+        if (damageData.target == this.gameObject)
+            TakeDamage(damageData.damage);
     }
 
     private void LifeStealing(float damageOutput)

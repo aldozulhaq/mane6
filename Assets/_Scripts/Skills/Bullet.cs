@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    [SerializeField] DamageChannel damageChannel;
     float damage;
 
     public void SetDamage(float _damage)
@@ -14,6 +15,6 @@ public class Bullet : MonoBehaviour
     private void OnParticleCollision(GameObject other)
     {
         Debug.Log("Hit " + other + " for " + damage);
-        GameplayEvents.OnBulletHit(other, damage);
+        damageChannel.Invoke(new DamageData { target = other, damage = damage });
     }
 }

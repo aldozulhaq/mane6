@@ -14,6 +14,8 @@ public abstract class EventChannel<T> : ScriptableObject
         }
     }
 
+    public void Invoke() => Invoke(default);
+
     public void Register(EventListener<T> listener) => listeners.Add(listener);
     public void Deregister(EventListener<T> listener) => listeners.Remove(listener);
 }

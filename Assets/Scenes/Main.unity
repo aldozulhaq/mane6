@@ -5176,6 +5176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c95ad8e93c8bcc4ba8b2d24f206cdfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageChannel: {fileID: 11400000, guid: c6ed346614fe72444996fed58322e15f, type: 2}
 --- !u!1 &307296982
 GameObject:
   m_ObjectHideFlags: 0
@@ -15529,6 +15530,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c95ad8e93c8bcc4ba8b2d24f206cdfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageChannel: {fileID: 11400000, guid: c6ed346614fe72444996fed58322e15f, type: 2}
 --- !u!1 &672907605
 GameObject:
   m_ObjectHideFlags: 0
@@ -16167,6 +16169,7 @@ GameObject:
   - component: {fileID: 852489826}
   - component: {fileID: 852489832}
   - component: {fileID: 852489833}
+  - component: {fileID: 852489834}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -16250,6 +16253,34 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.4125017, y: 1, z: 7.355212}
   m_Center: {x: -0.1720714, y: 0, z: 0.3637786}
+--- !u!114 &852489834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 852489825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 072fd51dbceb44247af24440e04f1e93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventChannel: {fileID: 11400000, guid: c6ed346614fe72444996fed58322e15f, type: 2}
+  unityEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 852489832}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: OnHitBullet
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &861132413
 GameObject:
   m_ObjectHideFlags: 0
@@ -22084,6 +22115,8 @@ GameObject:
   - component: {fileID: 1499659803}
   - component: {fileID: 1499659804}
   - component: {fileID: 1499659805}
+  - component: {fileID: 1499659806}
+  - component: {fileID: 1499659807}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -22151,6 +22184,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerText: {fileID: 1111352845}
   maxTimer: 30
+  onWaveEnd: {fileID: 11400000, guid: 0f667e842cd373b48858d931c85b8d51, type: 2}
 --- !u!114 &1499659804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22164,6 +22198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clearWavePanel: {fileID: 701808068}
+  onWaveStart: {fileID: 11400000, guid: 8606ac490ca69524cbbdc0c5c3bc9fe8, type: 2}
 --- !u!114 &1499659805
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22177,6 +22212,86 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   modifiers: []
+--- !u!114 &1499659806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1499659800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 093dc73e7da2645488309397ab2a1e02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventChannel: {fileID: 11400000, guid: 0f667e842cd373b48858d931c85b8d51, type: 2}
+  unityEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1499659802}
+        m_TargetAssemblyTypeName: WaveManager, Assembly-CSharp
+        m_MethodName: OnWaveEnd
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1499659804}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: OnWaveClear
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1499659807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1499659800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 093dc73e7da2645488309397ab2a1e02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventChannel: {fileID: 11400000, guid: 8606ac490ca69524cbbdc0c5c3bc9fe8, type: 2}
+  unityEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1499659803}
+        m_TargetAssemblyTypeName: TimeManager, Assembly-CSharp
+        m_MethodName: StartCountdown
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1499659802}
+        m_TargetAssemblyTypeName: WaveManager, Assembly-CSharp
+        m_MethodName: OnWaveStart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1527189070
 GameObject:
   m_ObjectHideFlags: 0
@@ -32138,6 +32253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c95ad8e93c8bcc4ba8b2d24f206cdfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageChannel: {fileID: 11400000, guid: c6ed346614fe72444996fed58322e15f, type: 2}
 --- !u!1 &1736611186
 GameObject:
   m_ObjectHideFlags: 0
