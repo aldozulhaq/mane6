@@ -99,7 +99,18 @@ public class Enemy : MonoBehaviour
     private void OnHitBullet(GameObject target, float damage)
     {
         if (target == this.gameObject)
+        {
+            // Calculate crit
+            if (UnityEngine.Random.value < PlayerStats.critDamagePercentage)
+            {
+                // calculate crit damage
+                damage *= PlayerStats.critDamagePercentage;
+            }
+
             TakeDamage(damage);
+        }
+
+        GameplayEvents.OnEnemyHit(damage);
     }
 
     private void OnDrawGizmosSelected()

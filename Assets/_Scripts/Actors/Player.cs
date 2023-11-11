@@ -19,10 +19,12 @@ public class Player : MonoBehaviour
     private void OnEnable()
     {
         GameplayEvents.OnBulletHitE += OnHitBullet;
+        GameplayEvents.OnEnemyHitE += LifeStealing;
     }
     private void OnDisable()
     {
         GameplayEvents.OnBulletHitE -= OnHitBullet;
+        GameplayEvents.OnEnemyHitE -= LifeStealing;
     }
 
     private void Start()
@@ -48,13 +50,20 @@ public class Player : MonoBehaviour
     {
         foreach (Bullet bullet in bullets)
         {
-            bullet.SetDamage(damage);
+            bullet.SetDamage(damage * (PlayerStats.damagePercentage / 100));
         }
     }
 
-    private void OnHitBullet(GameObject target, float damage)
+    private void OnHitBullet(GameObject target, float _damage)
     {
         if (target == this.gameObject)
             TakeDamage(damage);
+    }
+
+    private void LifeStealing(float damageOutput)
+    {
+        // Calculate lifesteal
+        float healthGet = damageOutput * (PlayerStats.lifeStealPercentage / 100);
+        Heal(healthGet);
     }
 }

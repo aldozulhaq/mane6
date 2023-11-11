@@ -5,10 +5,12 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] GameObject clearWavePanel;
-
+    int enemiesKilled;
     private void OnEnable()
     {
         GameplayEvents.OnWaveEndE += OnWaveClear;
+
+        enemiesKilled = 0;
     }
 
     private void OnDisable()
@@ -30,5 +32,10 @@ public class GameManager : MonoBehaviour
     private void OnWaveClear()
     {
         clearWavePanel.SetActive(true);
+    }
+
+    private void AddEnemiesKilled()
+    {
+        enemiesKilled++;
     }
 }

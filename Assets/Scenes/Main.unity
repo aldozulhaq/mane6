@@ -22131,8 +22131,8 @@ MonoBehaviour:
     spawnTimeIntervalMax: 5
     spawnCountMin: 5
     spawnCountMax: 10
-  minBoundary: {x: -200, y: 0, z: -200}
-  maxBoundary: {x: 200, y: 0, z: 200}
+  minBoundary: {x: -90, y: 0, z: -90}
+  maxBoundary: {x: 90, y: 0, z: 90}
   enemiesPrefab:
   - {fileID: 706849532916788518, guid: 9f653a3640aa83b41b72ea1edc480d8c, type: 3}
   - {fileID: -544812839304950778, guid: 60e6935c90547f34eac81e106b066d79, type: 3}
