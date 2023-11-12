@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] Image healthBar;
     [SerializeField] Text killText;
     [SerializeField] Text waveText;
+    [SerializeField] Text pointText;
 
     Material healthBarMat;
 
@@ -42,6 +43,11 @@ public class UIManager : MonoBehaviour
     public void UpdateKillCount(float count)
     {
         killText.text = "x " + count.ToString();
+    }
+
+    public void UpdatePoint(float count)
+    {
+        pointText.text = "x " + count.ToString();
     }
 
     public void UpdateWaveText(int waveCount)
