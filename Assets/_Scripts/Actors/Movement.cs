@@ -20,6 +20,7 @@ public class Movement : MonoBehaviour
 
     Vector3 previousDir = Vector3.up;
     float currentMoveSpeed = 0f;
+    bool isPlayerDead;
 
     private void Update()
     {
@@ -30,6 +31,9 @@ public class Movement : MonoBehaviour
 
     private void HandleMovementInput()
     {
+        if (isPlayerDead)
+            return;
+
         float horizontalMov = Input.GetAxisRaw("Horizontal");
         float verticalMov = Input.GetAxisRaw("Vertical");
 
@@ -81,5 +85,9 @@ public class Movement : MonoBehaviour
     private void SendSpeedToAnimator()
     {
         playerSpeedChannel.Invoke(currentMoveSpeed);
+    }
+    public void SetPlayerDead(bool active)
+    {
+        isPlayerDead = active;
     }
 }

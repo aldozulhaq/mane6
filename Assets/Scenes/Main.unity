@@ -2251,6 +2251,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 852489826}
+        m_TargetAssemblyTypeName: Movement, Assembly-CSharp
+        m_MethodName: SetPlayerDead
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &779772421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2479,6 +2491,7 @@ GameObject:
   - component: {fileID: 852489834}
   - component: {fileID: 852489835}
   - component: {fileID: 852489836}
+  - component: {fileID: 852489837}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -2538,6 +2551,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerHealthChannel: {fileID: 11400000, guid: 91c337c7d30f7ba40967e57308039a87,
     type: 2}
+  OnPlayerDeath: {fileID: 11400000, guid: 898b036fac7b1674f8278572b67c91fa, type: 2}
   health: 0
   damage: 10
   bulletParent: {fileID: 764381273}
@@ -2657,6 +2671,34 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &852489837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 852489825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 093dc73e7da2645488309397ab2a1e02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventChannel: {fileID: 11400000, guid: 898b036fac7b1674f8278572b67c91fa, type: 2}
+  unityEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 852489826}
+        m_TargetAssemblyTypeName: Movement, Assembly-CSharp
+        m_MethodName: SetPlayerDead
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!1 &861132413
 GameObject:
@@ -2954,7 +2996,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &888499290
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4858,6 +4900,7 @@ GameObject:
   - component: {fileID: 1499659808}
   - component: {fileID: 1499659810}
   - component: {fileID: 1499659813}
+  - component: {fileID: 1499659814}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -5093,6 +5136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clearWavePanel: {fileID: 701808068}
+  gameOverPanel: {fileID: 888499289}
   OnWaveStart: {fileID: 11400000, guid: 8606ac490ca69524cbbdc0c5c3bc9fe8, type: 2}
   OnGameStart: {fileID: 11400000, guid: edc4ff54cf59a1143abb0c8d820c6410, type: 2}
 --- !u!114 &1499659805
@@ -5341,6 +5385,34 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1499659814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1499659800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 093dc73e7da2645488309397ab2a1e02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventChannel: {fileID: 11400000, guid: 898b036fac7b1674f8278572b67c91fa, type: 2}
+  unityEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1499659804}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: SetActiveGameOverPanel
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!1 &1639588917
 GameObject:
   m_ObjectHideFlags: 0
@@ -5423,7 +5495,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1639588920}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1499659804}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: ReloadScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1639588920
 MonoBehaviour:
   m_ObjectHideFlags: 0

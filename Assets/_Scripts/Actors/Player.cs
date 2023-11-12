@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
 {
     [Header("Events")]
     [SerializeField] FloatEventChannel playerHealthChannel;
+    [SerializeField] EventChannel OnPlayerDeath;
 
     [Header("Runtime")]
     [SerializeField] float health;
@@ -61,6 +62,9 @@ public class Player : MonoBehaviour
             CamShake.instance.ShakeCamera();
 
             playerHealthChannel.Invoke(health);
+
+            if (health <= 0f)
+                OnPlayerDeath.Invoke();
         }
     }
 

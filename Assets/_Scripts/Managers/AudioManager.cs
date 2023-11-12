@@ -14,7 +14,6 @@ public class AudioManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject); // Don't destroy this object when loading a new scene
         }
         else
             Destroy(gameObject);

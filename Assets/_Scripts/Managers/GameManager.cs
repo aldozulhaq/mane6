@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     UIManager uiManager;
 
     [SerializeField] GameObject clearWavePanel;
+    [SerializeField] GameObject gameOverPanel;
 
     [Header("Event Channels")]
     [SerializeField] EventChannel OnWaveStart;
@@ -59,5 +61,15 @@ public class GameManager : MonoBehaviour
         enemiesKilled = 0;
         waveCount = 1;
         UpdateUI();
+    }
+
+    public void SetActiveGameOverPanel(bool active)
+    {
+        gameOverPanel.SetActive(active);
+    }
+
+    public void ReloadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
