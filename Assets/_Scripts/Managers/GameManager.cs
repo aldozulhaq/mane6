@@ -9,7 +9,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject clearWavePanel;
 
     [Header("Event Channels")]
-    [SerializeField] EventChannel onWaveStart;
+    [SerializeField] EventChannel OnWaveStart;
+    [SerializeField] EventChannel OnGameStart;
 
     private int enemiesKilled;
     private int waveCount;
@@ -23,7 +24,13 @@ public class GameManager : MonoBehaviour
     [ContextMenu("Start Wave")]
     public void StartWave()
     {
-        onWaveStart.Invoke();
+        OnWaveStart.Invoke();
+    }
+
+    public void StartGame()
+    {
+        Reset();
+        OnGameStart.Invoke();
     }
 
     public void OnWaveClear()
