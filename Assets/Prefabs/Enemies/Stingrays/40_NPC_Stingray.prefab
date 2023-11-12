@@ -5047,7 +5047,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10c53cc132ce00949b180b3d95837942, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameTag: Stingray
+  nameTag: Stingray 40
   moveSpeed: 2
   health: 40
   damage: 10

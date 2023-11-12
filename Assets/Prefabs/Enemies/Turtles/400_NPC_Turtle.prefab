@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bd7d0cee142204c8541779476f46cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameTag: Turtle
+  nameTag: Turtle 400
   moveSpeed: 1
   health: 400
   damage: 10

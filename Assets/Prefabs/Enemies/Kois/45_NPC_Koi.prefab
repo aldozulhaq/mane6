@@ -132,13 +132,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc346f91fe5560143986d3a8901ab4b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameTag: Koi
+  nameTag: Koi 45
   moveSpeed: 5
   health: 45
   damage: 15
   attackRadius: 1
   hitCooldown: 1
-  pointDrop: 2
+  pointDrop: 1
   OnEnemyDead: {fileID: 11400000, guid: 536d1bf1a246e5e43b0607c8f62aa03c, type: 2}
   damageChannel: {fileID: 11400000, guid: c6ed346614fe72444996fed58322e15f, type: 2}
 --- !u!65 &525580967588289742
