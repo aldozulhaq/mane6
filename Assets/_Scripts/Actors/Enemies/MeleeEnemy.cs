@@ -11,5 +11,6 @@ public class MeleeEnemy : Enemy
     {
         base.AttackPlayer();
         damageChannel.Invoke(new DamageData(player, damage));
+        AudioManager.instance.PlaySFX("Hit");
     }
 }

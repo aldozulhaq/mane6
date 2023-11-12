@@ -20,6 +20,7 @@ public class RangedEnemy : Enemy
         foreach (ParticleSystem bulletParticle in bulletParticleSystems)
         {
             bulletParticle.Play();
+            AudioManager.instance.PlaySFX("Bullet");
         }
     }
 

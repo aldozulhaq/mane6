@@ -15,12 +15,15 @@ public class Shooter : MonoBehaviour
 
     readonly protected int baseAngleProgression = 15;
     protected int currentAngle = 0;
-    
+
+    private bool isShooting;
+
     protected virtual void Start()
     {
         baseShooterFireRate = baseShooter.GetComponent<ParticleSystem>().emission.rateOverTime.constant;
         shooterPS.Add(GetComponentInChildren<ParticleSystem>());
         AdjustFireRate();
+        StartCoroutine(PlaySFX());
     }
 
     public void AdjustFireRate()
@@ -71,6 +74,7 @@ public class Shooter : MonoBehaviour
 
     protected void StopAllShooters()
     {
+        StopSFX();
         foreach (ParticleSystem ps in shooterPS)
         {
             ps.Clear();
@@ -79,9 +83,28 @@ public class Shooter : MonoBehaviour
 
     protected void PlayAllShooters()
     {
+        StartCoroutine(PlaySFX());
         foreach (ParticleSystem ps in shooterPS)
         {
             ps.Play();
         }
+    }
+
+    private IEnumerator PlaySFX()
+    {
+        isShooting = true;
+        while (isShooting)
+        {
+            float bulletTime = shooterPS[0].emission.rateOverTime.constant;
+            AudioManager.instance.PlaySFX("Bullet");
+
+            yield return new WaitForSeconds(bulletTime);
+        }
+    }
+
+    private void StopSFX()
+    {
+        isShooting = false;
+        StopCoroutine(PlaySFX());
     }
 }
