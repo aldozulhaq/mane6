@@ -154,7 +154,7 @@ PrefabInstance:
     - target: {fileID: 8202069633526639566, guid: 6792efb114f15f04ca4587e5b9013bd3,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8202069633526639566, guid: 6792efb114f15f04ca4587e5b9013bd3,
         type: 3}
@@ -164,7 +164,7 @@ PrefabInstance:
     - target: {fileID: 8202069633526639566, guid: 6792efb114f15f04ca4587e5b9013bd3,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8202069633526639566, guid: 6792efb114f15f04ca4587e5b9013bd3,
         type: 3}
@@ -214,12 +214,12 @@ PrefabInstance:
     - target: {fileID: 8202069633526639566, guid: 6792efb114f15f04ca4587e5b9013bd3,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 295.79034
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8202069633526639566, guid: 6792efb114f15f04ca4587e5b9013bd3,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -136.65753
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8202069633526639566, guid: 6792efb114f15f04ca4587e5b9013bd3,
         type: 3}
@@ -839,7 +839,7 @@ PrefabInstance:
     - target: {fileID: 8202069633526639566, guid: 6792efb114f15f04ca4587e5b9013bd3,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8202069633526639566, guid: 6792efb114f15f04ca4587e5b9013bd3,
         type: 3}
@@ -849,7 +849,7 @@ PrefabInstance:
     - target: {fileID: 8202069633526639566, guid: 6792efb114f15f04ca4587e5b9013bd3,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8202069633526639566, guid: 6792efb114f15f04ca4587e5b9013bd3,
         type: 3}
@@ -899,12 +899,12 @@ PrefabInstance:
     - target: {fileID: 8202069633526639566, guid: 6792efb114f15f04ca4587e5b9013bd3,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 177.47421
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8202069633526639566, guid: 6792efb114f15f04ca4587e5b9013bd3,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -136.65753
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8202069633526639566, guid: 6792efb114f15f04ca4587e5b9013bd3,
         type: 3}
@@ -1311,7 +1311,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &701808069
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1829,6 +1829,7 @@ GameObject:
   - component: {fileID: 852489833}
   - component: {fileID: 852489834}
   - component: {fileID: 852489835}
+  - component: {fileID: 852489836}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -1960,6 +1961,46 @@ MonoBehaviour:
       - m_Target: {fileID: 852489832}
         m_TargetAssemblyTypeName: Player, Assembly-CSharp
         m_MethodName: LifeStealing
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &852489836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 852489825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c030e84c8d122149ae678ed5c212dcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventChannel: {fileID: 11400000, guid: 68a57feae02f60e4d824a8c096d09343, type: 2}
+  unityEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 852489832}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: SetBulletDamage
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 852489826}
+        m_TargetAssemblyTypeName: Movement, Assembly-CSharp
+        m_MethodName: SetMoveSpeed
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3526,6 +3567,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   modifiers: []
+  modifierTypeEventChannel: {fileID: 11400000, guid: 68a57feae02f60e4d824a8c096d09343,
+    type: 2}
 --- !u!114 &1499659806
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4034,7 +4077,7 @@ PrefabInstance:
     - target: {fileID: 8202069633526639566, guid: 6792efb114f15f04ca4587e5b9013bd3,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8202069633526639566, guid: 6792efb114f15f04ca4587e5b9013bd3,
         type: 3}
@@ -4044,7 +4087,7 @@ PrefabInstance:
     - target: {fileID: 8202069633526639566, guid: 6792efb114f15f04ca4587e5b9013bd3,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8202069633526639566, guid: 6792efb114f15f04ca4587e5b9013bd3,
         type: 3}
@@ -4094,12 +4137,12 @@ PrefabInstance:
     - target: {fileID: 8202069633526639566, guid: 6792efb114f15f04ca4587e5b9013bd3,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 59.15807
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8202069633526639566, guid: 6792efb114f15f04ca4587e5b9013bd3,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -136.65753
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8202069633526639566, guid: 6792efb114f15f04ca4587e5b9013bd3,
         type: 3}

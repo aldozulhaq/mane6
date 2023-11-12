@@ -8,6 +8,9 @@ public class ItemModifierManager : MonoBehaviour
 
     public List<Modifier> modifiers;
 
+    [Header("Events")]
+    [SerializeField] ModifierTypeEventChannel modifierTypeEventChannel;
+
     private void Awake()
     {
         if (instance == null)
@@ -22,6 +25,7 @@ public class ItemModifierManager : MonoBehaviour
     public void AddModifier(Modifier modifier)
     {
         PlayerStats.ApplyModifiers(modifier.datas);
+        NotifyModifierChangeOnType(modifier);
         modifiers.Add(modifier);
     }
 
@@ -41,5 +45,13 @@ public class ItemModifierManager : MonoBehaviour
         }
 
         return level;
+    }
+
+    void NotifyModifierChangeOnType(Modifier modifier)
+    {
+        foreach(var data in modifier.datas)
+        {
+            modifierTypeEventChannel.Invoke(data.modifierType);
+        }
     }
 }

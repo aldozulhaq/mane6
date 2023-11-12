@@ -32,6 +32,12 @@ public class Shooter : MonoBehaviour
         }
     }
 
+    public void LevelUp(ModifierType type)
+    {
+        if (type != ModifierType.ShooterProjectileAmount) return;
+        LevelUp();
+    }
+
     public void LevelUp()
     {
         shooterAmount++;
