@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     [Header("Event Channels")]
     [SerializeField] EventChannel onWaveStart;
 
-    int enemiesKilled;
+    public int enemiesKilled;
 
     [ContextMenu("Start Wave")]
     public void StartWave()
@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
         clearWavePanel.SetActive(true);
     }
 
-    private void AddEnemiesKilled()
+    public void AddEnemiesKilled()
     {
         enemiesKilled++;
     }

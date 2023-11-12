@@ -5053,6 +5053,7 @@ MonoBehaviour:
   damage: 1
   attackRadius: 30
   hitCooldown: 3
+  OnEnemyDead: {fileID: 11400000, guid: 536d1bf1a246e5e43b0607c8f62aa03c, type: 2}
 --- !u!65 &1417150162918941202
 BoxCollider:
   m_ObjectHideFlags: 0
