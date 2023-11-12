@@ -50,6 +50,7 @@ public class AudioManager : MonoBehaviour
         }
         else
         {
+            sfxSource.pitch = Random.Range(0.7f, 1.4f);
             sfxSource.PlayOneShot(audio.clip);
         }
     }

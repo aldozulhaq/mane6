@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         Reset();
+        PlayerStats.ResetStats();
         OnGameStart.Invoke();
     }
 

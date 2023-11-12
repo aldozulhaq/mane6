@@ -13,6 +13,8 @@ public class Weapon : ScriptableObject, IUsable
     public WeaponType weaponType;
     public Sprite sprite;
     public string desc;
+    public int maxLevel;
+    public int currentLevel = 1;
 
     public string GetName()
     {

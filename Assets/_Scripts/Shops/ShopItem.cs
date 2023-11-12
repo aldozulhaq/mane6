@@ -18,6 +18,14 @@ public class ShopItem : MonoBehaviour
 
     Modifier modifier;
     Weapon weapon;
+
+    PointManager pointManager;
+
+    private void Awake()
+    {
+        pointManager = FindObjectOfType<PointManager>();
+    }
+
     public void InitUI()
     {
         int level = DetermineLevelToSell();
@@ -47,7 +55,13 @@ public class ShopItem : MonoBehaviour
 
     public void Buy()
     {
-        item.Use();
-        buyButton.interactable = false;
+        if (!pointManager.IsPointSufficient(price))
+        {
+            pointManager.ReducePoint(price);
+            item.Use();
+            InventoryManager.instance.AddItem(item);
+            FindObjectOfType<UIManager>().UpdatePoint(pointManager.GetPoint());
+            buyButton.interactable = false;
+        }
     }
 }

@@ -11,6 +11,10 @@ public class WeaponManager : MonoBehaviour
     [SerializeField] Transform weaponOrbitParent;
     [SerializeField] Transform weaponFollowParent;
 
+    public List<Weapon> maxLeveledWeapons = new List<Weapon>();
+
+    [SerializeField] EventChannel onShiledLevelUp;
+
     private void Awake()
     {
         if (instance == null)
@@ -26,13 +30,34 @@ public class WeaponManager : MonoBehaviour
         switch(weapon.weaponType)
         {
             case WeaponType.Orbit:
-                Instantiate(weapon.prefab, weaponOrbitParent);
+                var a = Instantiate(weapon.prefab, weaponOrbitParent);
+                a.transform.localRotation = Quaternion.Euler(Vector3.zero);
+
+                switch(weapon.currentLevel)
+                {
+                    case 1:
+                        a.transform.localPosition = new Vector3(-3.32f, 0, -3.82f);
+                        break;
+                    case 2:
+                        a.transform.localPosition = new Vector3(+3.32f, 0, +3.82f);
+                        break;
+                    case 3:
+                        a.transform.localPosition = new Vector3(-6.64f, 0, -6.64f);
+                        break;
+                    case 4:
+                        a.transform.localPosition = new Vector3(+6.64f, 0, +6.64f);
+                        break;
+                }
                 break;
             case WeaponType.Follow:
-                Instantiate(weapon.prefab, weaponFollowParent);
+                if(weapon.currentLevel == 1)
+                    Instantiate(weapon.prefab, weaponFollowParent);
+                onShiledLevelUp.Invoke();
                 break;
         }
         weapons.Add(weapon);
+        weapon.currentLevel++;
+        CheckIfWeaponMaxLeveled(weapon);
     }
 
     public void ClearWeapon()
@@ -51,5 +76,13 @@ public class WeaponManager : MonoBehaviour
         }
 
         return level;
+    }
+
+    void CheckIfWeaponMaxLeveled(Weapon weapon)
+    {
+        if(GetWeaponLevel(weapon) == weapon.maxLevel)
+        {
+            maxLeveledWeapons.Add(weapon);
+        }
     }
 }
