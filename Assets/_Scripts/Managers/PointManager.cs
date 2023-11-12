@@ -34,7 +34,9 @@ public class PointManager : MonoBehaviour
 
     public void AddPoint()
     {
-        currentPoint++;
+        int pointToAdd = 1;
+        pointToAdd = (int)(pointToAdd * PlayerStats.pointsGainPercentage);
+        currentPoint += pointToAdd;
 
         // UPDATE UI
         uiManager.UpdatePoint(currentPoint);

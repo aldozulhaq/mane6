@@ -27,6 +27,7 @@ public class ShopItem : MonoBehaviour
         itemImage.sprite = item.GetSprite();
         
         price = price * level;
+        Debug.Log("Price: " + price + "Level: " + level);
         itemPrice.text = price.ToString() + "G";
     }
 
@@ -35,11 +36,11 @@ public class ShopItem : MonoBehaviour
         int level = 0;
         if(item is Modifier)
         {
-            level = (ItemModifierManager.instance.GetModifierLevel(item as Modifier) + 1);
+            level = (ItemModifierManager.instance.GetModifierLevel(item as Modifier));
         }
         else if(item is Weapon)
         {
-            level = (WeaponManager.instance.GetWeaponLevel(item as Weapon) + 1);
+            level = (WeaponManager.instance.GetWeaponLevel(item as Weapon));
         }
 
         return level + 1;
