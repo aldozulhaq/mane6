@@ -56,6 +56,7 @@ public class MeleeRangeEnemy : Enemy
         canHit = false;
 
         player.TakeDamage(new DamageData(player, damage));
+        AudioManager.instance.PlaySFX("Hit");
         yield return new WaitForSeconds(hitCooldown);
 
         canHit = true;
@@ -69,6 +70,7 @@ public class MeleeRangeEnemy : Enemy
         foreach (ParticleSystem bulletParticle in bulletParticleSystems)
         {
             bulletParticle.Play();
+            AudioManager.instance.PlaySFX("Bullet");
         }
         yield return new WaitForSeconds(hitCooldown);
 
