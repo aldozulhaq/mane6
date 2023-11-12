@@ -9,6 +9,8 @@ public class UIManager : MonoBehaviour
 {
     [SerializeField] Text textTimer;
     [SerializeField] Image healthBar;
+    [SerializeField] Text killText;
+    [SerializeField] Text waveText;
 
     Material healthBarMat;
 
@@ -37,6 +39,21 @@ public class UIManager : MonoBehaviour
         DOVirtual.Float(currentHealthFrontProgress * PlayerStats.maxHealth, currentHealth, 1f, AnimateBackHealth).SetDelay(1f);
     }
 
+    public void UpdateKillCount(float count)
+    {
+        killText.text = "x " + count.ToString();
+    }
+
+    public void UpdateWaveText(int waveCount)
+    {
+        int currentLevel = waveCount / 10;
+        if (waveCount % 10 != 0)
+            currentLevel++;
+        int currentWave = waveCount - (currentLevel - 1) * 10;
+
+        waveText.text = currentLevel.ToString() + " - " + currentWave.ToString();
+    }
+    
     void AnimateFrontHealth(float currentHealth)
     {
         healthBarMat.SetFloat("_FrontProgress", currentHealth / PlayerStats.maxHealth);

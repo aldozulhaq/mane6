@@ -4,12 +4,21 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    UIManager uiManager;
+
     [SerializeField] GameObject clearWavePanel;
 
     [Header("Event Channels")]
     [SerializeField] EventChannel onWaveStart;
 
-    public int enemiesKilled;
+    private int enemiesKilled;
+    private int waveCount;
+
+    private void Start()
+    {
+        uiManager = FindObjectOfType<UIManager>();
+        Reset();
+    }
 
     [ContextMenu("Start Wave")]
     public void StartWave()
@@ -20,10 +29,25 @@ public class GameManager : MonoBehaviour
     public void OnWaveClear()
     {
         clearWavePanel.SetActive(true);
+        uiManager.UpdateWaveText(waveCount);
     }
 
-    public void AddEnemiesKilled(int count)
+    public void AddEnemiesKilled()
     {
-        enemiesKilled += count;
+        enemiesKilled++;
+        uiManager.UpdateKillCount(enemiesKilled);
+    }
+
+    public void UpdateUI()
+    {
+        uiManager.UpdateWaveText(waveCount);
+        uiManager.UpdateKillCount(enemiesKilled);
+    }
+
+    public void Reset()
+    {
+        enemiesKilled = 0;
+        waveCount = 1;
+        UpdateUI();
     }
 }

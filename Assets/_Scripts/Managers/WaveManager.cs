@@ -27,7 +27,6 @@ public class WaveManager : MonoBehaviour
 
     [Header("Event Channels")]
     [SerializeField] EventChannel onWaveEnd;
-    [SerializeField] IntEventChannel onEnemyDie;
 
     private int currentWaveIndex;
     private Vector3 randomPosition;
@@ -77,7 +76,6 @@ public class WaveManager : MonoBehaviour
             //BatchSpawn(waves[currentWaveIndex].enemyPrefab, randomSpawnCount);
 
             int randomEnemiesIndex = UnityEngine.Random.Range(0, waves[currentWaveIndex].enemyPrefabs.Length);
-            Debug.Log(randomEnemiesIndex);
             StartCoroutine(InstantiateEnemiesCoroutine(waves[currentWaveIndex].enemyPrefabs[randomEnemiesIndex]));
 
             yield return new WaitForSeconds(1f);
@@ -103,9 +101,9 @@ public class WaveManager : MonoBehaviour
 
     private void KillEnemy(Enemy enemyPrefab)
     {
+        Debug.Log("enemies killed");
         enemyPool[enemyPrefab.GetNameTag()].Release(enemyPrefab);
         enemiesKilled++;
-        onEnemyDie.Invoke();
 
         //Destroy(enemy.gameObject);
         if (enemiesKilled >= waves[currentWaveIndex].spawnCount)
