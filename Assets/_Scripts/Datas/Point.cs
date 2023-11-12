@@ -22,7 +22,15 @@ public class Point : MonoBehaviour
 
     private void Update()
     {
-        if (Vector3.Distance(player.transform.position, transform.position) <= pickRadius)
+        /*if (Vector3.Distance(player.transform.position, transform.position) <= pickRadius)
+        {
+            MoveToPlayer();
+        }*/
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject == player.gameObject)
         {
             MoveToPlayer();
         }
@@ -31,7 +39,8 @@ public class Point : MonoBehaviour
     private void MoveToPlayer()
     {
         transform.DOMove(player.transform.position, flySpeed).OnComplete(() => {
-            onGetPoint.Invoke();    
+            Debug.Log("Move End");
+            onGetPoint.Invoke();
             DestroyPoint(); 
         });
     }
