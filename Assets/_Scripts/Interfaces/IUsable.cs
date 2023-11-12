@@ -4,5 +4,8 @@ using UnityEngine;
 
 public interface IUsable
 {
+    string GetDesc();
+    string GetName();
+    Sprite GetSprite();
     void Use();
 }

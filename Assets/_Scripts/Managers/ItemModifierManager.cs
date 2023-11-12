@@ -21,12 +21,25 @@ public class ItemModifierManager : MonoBehaviour
 
     public void AddModifier(Modifier modifier)
     {
-        modifier.Use();
+        PlayerStats.ApplyModifiers(modifier.datas);
         modifiers.Add(modifier);
     }
 
     public void ClearModifier()
     {
         modifiers.Clear();
+    }
+
+    public int GetModifierLevel(Modifier modifier)
+    {
+        int level = 0;
+
+        foreach (var mod in modifiers)
+        {
+            if (mod.name == modifier.name)
+                level++;
+        }
+
+        return level;
     }
 }

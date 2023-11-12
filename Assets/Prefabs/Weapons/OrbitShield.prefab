@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1556707104163478280}
   - component: {fileID: 7616943286313365807}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: OrbitShield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: 1
+  maxLevel: 4
   orbitShieldFishPrefab: {fileID: 2684076762151928096, guid: d21be5cf55346cd438b1a0b1d45f8196,
     type: 3}
 --- !u!1001 &1434042098593952593

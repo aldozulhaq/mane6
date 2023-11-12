@@ -46,6 +46,16 @@ public class Modifier : ScriptableObject, IUsable
 
     public void Use()
     {
-        PlayerStats.ApplyModifiers(datas);
+        ItemModifierManager.instance.AddModifier(this);
+    }
+
+    public string GetDesc()
+    {
+        return desc;
+    }
+
+    public Sprite GetSprite()
+    {
+        return sprite;
     }
 }

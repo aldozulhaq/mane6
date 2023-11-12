@@ -17,6 +17,20 @@ public class PlayerStats
     public static float pointsGainPercentage = 100f;
     public static float shooterProjectileAmount = 1f;
 
+    public static void ResetStats()
+    {
+        maxHealth = 100f;
+        moveSpeedPercentage = 100f;
+        damagePercentage = 100f;
+        fireRatePercentage = 100f;
+        critChancePercentage = 0f;
+        critDamagePercentage = 100f;
+        lifeStealPercentage = 0f;
+        damageReducePercentage = 0f;
+        pointsGainPercentage = 100f;
+        shooterProjectileAmount = 1f;
+    }
+
     public static void ApplyModifiers(List<ModifierData> modifiers)
     {
         foreach (var modifier in modifiers)
