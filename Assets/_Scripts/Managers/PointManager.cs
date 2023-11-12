@@ -13,7 +13,7 @@ public class PointManager : MonoBehaviour
 
     private void Start()
     {
-        uiManager = FindObjectOfType<UIManager>();
+        uiManager = FindObjectOfType<UIManager>(true);
         pointObjectPool = new ObjectPool<Point>(() =>
         {
             return Instantiate(pointPrefab);
@@ -29,7 +29,6 @@ public class PointManager : MonoBehaviour
         }, false, 10, 100);
 
         currentPoint = 0;
-        uiManager.UpdatePoint(currentPoint);
     }
 
     public void AddPoint()

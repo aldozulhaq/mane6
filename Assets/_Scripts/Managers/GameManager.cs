@@ -17,8 +17,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        uiManager = FindObjectOfType<UIManager>();
-        Reset();
+        uiManager = FindObjectOfType<UIManager>(true);
     }
 
     [ContextMenu("Start Wave")]
@@ -32,6 +31,8 @@ public class GameManager : MonoBehaviour
         Reset();
         PlayerStats.ResetStats();
         OnGameStart.Invoke();
+
+        StartWave();
     }
 
     public void OnWaveClear()
