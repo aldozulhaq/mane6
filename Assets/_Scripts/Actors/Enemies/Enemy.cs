@@ -13,8 +13,10 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected float damage;
     [SerializeField] protected float attackRadius;
     [SerializeField] protected float hitCooldown = 1f;
+    [SerializeField] protected int pointDrop;
 
     protected Player player;
+    protected PointManager pointManager;
 
     private Action<Enemy> deathAction;
 
@@ -23,6 +25,8 @@ public class Enemy : MonoBehaviour
     protected virtual void OnEnable()
     {
         player = FindObjectOfType<Player>();
+        pointManager = FindObjectOfType<PointManager>();
+
         StartCoroutine(MoveToPlayer());
     }
 
@@ -73,10 +77,10 @@ public class Enemy : MonoBehaviour
         deathAction = _deathAction;
     }
 
-    [ContextMenu("Kill")]
     public virtual void Death()
     {
         OnEnemyDead.Invoke();
+        pointManager.InstantiatePoint(transform.position, pointDrop);
         deathAction(this);
     }
 

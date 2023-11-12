@@ -76,6 +76,7 @@ MonoBehaviour:
   damage: 0
   attackRadius: 0
   hitCooldown: 5
+  pointDrop: 4
   OnEnemyDead: {fileID: 11400000, guid: 536d1bf1a246e5e43b0607c8f62aa03c, type: 2}
 --- !u!114 &7697888521798382483
 MonoBehaviour:

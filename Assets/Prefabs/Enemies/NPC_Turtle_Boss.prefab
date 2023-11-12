@@ -152,6 +152,7 @@ MonoBehaviour:
   damage: 5
   attackRadius: 12
   hitCooldown: 1
+  pointDrop: 6
   OnEnemyDead: {fileID: 11400000, guid: 536d1bf1a246e5e43b0607c8f62aa03c, type: 2}
   fireArea: 0
   ceaseFireArea: 0
