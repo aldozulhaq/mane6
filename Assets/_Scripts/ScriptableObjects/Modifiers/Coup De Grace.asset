@@ -10,11 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ca6c9775d8e5364d86301c7794a1120, type: 3}
-  m_Name: Thicc Tuna
+  m_Name: Coup De Grace
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 7e72d7b72f987774d8c85a96870f41f1, type: 3}
+  sprite: {fileID: 206501067, guid: 72226dca2d9771c408ca0e74a55cefed, type: 3}
   datas:
-  - modifierType: 0
+  - modifierType: 3
     modifierOperation: 0
     value: 20
-  desc: +20% Max Health
+  - modifierType: 4
+    modifierOperation: 0
+    value: 50
+  - modifierType: 6
+    modifierOperation: 1
+    value: 20
+  desc: +20% Crit Chance | +50 Crit Damage | -20% Damage Reduction

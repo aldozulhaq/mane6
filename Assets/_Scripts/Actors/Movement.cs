@@ -46,6 +46,18 @@ public class Movement : MonoBehaviour
         }
     }
 
+    public void SetMoveSpeed(ModifierType type)
+    {
+        if (type != ModifierType.MoveSpeed) return;
+
+        //add move speed modifier here
+        maxMoveSpeed = 15f;
+        acceleration = 5f;
+
+        maxMoveSpeed = maxMoveSpeed * (1 + (PlayerStats.moveSpeedPercentage / 100));
+        acceleration = maxMoveSpeed / 3;
+    }
+
     private void RotateCharacter(Vector3 moveDir)
     {
         float targetAngle = Mathf.Atan2(moveDir.x, moveDir.z) * Mathf.Rad2Deg;

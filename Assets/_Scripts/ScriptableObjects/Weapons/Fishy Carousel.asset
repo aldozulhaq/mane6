@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ff620a285471fe4b8ce2e0e6481201c, type: 3}
   m_Name: Fishy Carousel
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  prefab: {fileID: 5811457189921869503, guid: aae83759de2a06046b80a5cadebcf69d, type: 3}
+  weaponType: 0
+  sprite: {fileID: 21300000, guid: 1a17b5efbc188fc4799df2b7033d3a16, type: 3}
   desc: +1 Ally Shield FIsh

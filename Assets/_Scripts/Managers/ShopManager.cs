@@ -15,6 +15,7 @@ public class ShopManager : MonoBehaviour
     private void Start()
     {
         shopListCount = modifierSellList.Count + weaponSellList.Count;
+        ClearShopItem();
         for(int i = 0; i < 3; i++)
         {
             InstantiateShopItem();
@@ -46,5 +47,14 @@ public class ShopManager : MonoBehaviour
 
         shopItem.item = item;
         shopItem.InitUI();
+    }
+
+    //clear shop item
+    public void ClearShopItem()
+    {
+        foreach(Transform child in transform)
+        {
+            Destroy(child.gameObject);
+        }
     }
 }

@@ -26,14 +26,28 @@ public class Player : MonoBehaviour
 
     public void Heal(float amount)
     {
-        Mathf.Clamp(health += amount, 0, PlayerStats.maxHealth); //clamp health between 0 and max health
+        if(health + amount > PlayerStats.maxHealth)
+        {
+            health = PlayerStats.maxHealth;
+        }
+        else
+        {
+            health += amount;
+        }
+        playerHealthChannel.Invoke(health);
     }
 
-    public void SetBulletDamage()           // Call this everytime player got damage modifier
+    public void SetBulletDamage(ModifierType type) // Call this everytime player got damage modifier
+    {
+        if (type != ModifierType.Damage) return;
+        SetBulletDamage();
+    }
+
+    public void SetBulletDamage()           
     {
         foreach (Bullet bullet in bullets)
         {
-            bullet.SetDamage(damage * (PlayerStats.damagePercentage / 100));
+            bullet.SetDamage(damage * (1 + PlayerStats.damagePercentage / 100));
         }
     }
 

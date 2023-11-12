@@ -4443,10 +4443,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   modifierSellList:
+  - {fileID: 11400000, guid: 1f77ef2e28ad2644a966008c3db3766e, type: 2}
+  - {fileID: 11400000, guid: 0f8f23c0f873da94dad1178de8c564e3, type: 2}
+  - {fileID: 11400000, guid: 847031439b4333048b40d498c0330901, type: 2}
+  - {fileID: 11400000, guid: 05a292b9191f87249b57d42c65d090de, type: 2}
+  - {fileID: 11400000, guid: d372ae6bf0eca3048a0f092929a66380, type: 2}
+  - {fileID: 11400000, guid: d5a4cd6363f14ca4ab7b348731e2a809, type: 2}
+  - {fileID: 11400000, guid: 4a4206065afbbad43b9b8ad605d98b42, type: 2}
+  - {fileID: 11400000, guid: 600f30180bffb5947aecd46d83f4d090, type: 2}
+  - {fileID: 11400000, guid: e6bae9e86f2476a4888b6d4e94ca4f80, type: 2}
+  - {fileID: 11400000, guid: 85f5bf2ea98fd9e42a7795deab5005c4, type: 2}
   - {fileID: 11400000, guid: cca7d94abc548d0439188febfffc5683, type: 2}
+  - {fileID: 11400000, guid: a78c32ff4f0ac5e4d93151eeb7e9b117, type: 2}
   weaponSellList:
-  - {fileID: 11400000, guid: f266dc927fb2e224a918b40d9203e4bf, type: 2}
   - {fileID: 11400000, guid: 7a37e68a43c44c842a2239baf6ef279f, type: 2}
+  - {fileID: 11400000, guid: f266dc927fb2e224a918b40d9203e4bf, type: 2}
   shopItemPrefab: {fileID: 477265602477262889, guid: 6792efb114f15f04ca4587e5b9013bd3,
     type: 3}
   shopListCount: 0

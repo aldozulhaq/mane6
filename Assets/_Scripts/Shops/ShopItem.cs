@@ -27,7 +27,6 @@ public class ShopItem : MonoBehaviour
         itemImage.sprite = item.GetSprite();
         
         price = price * level;
-        Debug.Log("Price: " + price + "Level: " + level);
         itemPrice.text = price.ToString() + "G";
     }
 
