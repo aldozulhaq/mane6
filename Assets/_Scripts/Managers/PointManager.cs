@@ -27,12 +27,17 @@ public class PointManager : MonoBehaviour
         {
             Destroy(point.gameObject);
         }, false, 10, 100);
+
+        currentPoint = 0;
+        uiManager.UpdatePoint(currentPoint);
     }
 
     public void AddPoint()
     {
         currentPoint++;
+
         // UPDATE UI
+        uiManager.UpdatePoint(currentPoint);
     }
 
     public void ReducePoint(int count)
@@ -65,5 +70,11 @@ public class PointManager : MonoBehaviour
     public void DestroyPoint(Point pointPrefab)
     {
         pointObjectPool.Release(pointPrefab);
+    }
+
+    public void Reset()
+    {
+        currentPoint = 0;
+        uiManager.UpdatePoint(currentPoint);
     }
 }
