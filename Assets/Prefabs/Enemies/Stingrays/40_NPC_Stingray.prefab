@@ -5012,7 +5012,7 @@ GameObject:
   - component: {fileID: 618800822128943169}
   - component: {fileID: -4085047088728821823}
   m_Layer: 7
-  m_Name: NPC_Stingray
+  m_Name: 40_NPC_Stingray
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5048,9 +5048,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameTag: Stingray
-  moveSpeed: 1
-  health: 20
-  damage: 1
+  moveSpeed: 2
+  health: 40
+  damage: 10
   attackRadius: 30
   hitCooldown: 3
   pointDrop: 2

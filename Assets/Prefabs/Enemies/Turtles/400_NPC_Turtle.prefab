@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5308880781151107887}
   - component: {fileID: 5038430896104413270}
   m_Layer: 7
-  m_Name: NPC_Turtle
+  m_Name: 400_NPC_Turtle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51,14 +51,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameTag: Turtle
   moveSpeed: 1
-  health: 50
-  damage: 2
+  health: 400
+  damage: 10
   attackRadius: 5
   hitCooldown: 1
   pointDrop: 3
   OnEnemyDead: {fileID: 11400000, guid: 536d1bf1a246e5e43b0607c8f62aa03c, type: 2}
-  fireArea: 0
-  ceaseFireArea: 0
+  fireArea: 30
+  ceaseFireArea: 50
 --- !u!65 &8163167667394252278
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -124,7 +124,7 @@ MonoBehaviour:
   unityEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3139199415377873543}
+      - m_Target: {fileID: 6800747535897039075}
         m_TargetAssemblyTypeName: Enemy, Assembly-CSharp
         m_MethodName: Death
         m_Mode: 1

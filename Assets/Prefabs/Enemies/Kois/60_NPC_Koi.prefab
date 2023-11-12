@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 8896624880010810616}
   - component: {fileID: 1541452130658732377}
   m_Layer: 7
-  m_Name: NPC_Koi
+  m_Name: 60_NPC_Koi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -134,8 +134,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameTag: Koi
   moveSpeed: 5
-  health: 10
-  damage: 10
+  health: 60
+  damage: 20
   attackRadius: 1
   hitCooldown: 1
   pointDrop: 2
