@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour
     public void OnWaveClear()
     {
         clearWavePanel.SetActive(true);
+        waveCount++;
         uiManager.UpdateWaveText(waveCount);
     }
 

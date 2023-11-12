@@ -15,6 +15,7 @@ public class TimeManager : MonoBehaviour
 
     public void StartCountdown()
     {
+        StopAllCoroutines();
         currentTime = maxTimer;
         isGameRunning = true;
         StartCoroutine(Countdown());
@@ -42,7 +43,7 @@ public class TimeManager : MonoBehaviour
         Debug.Log("Time's up");
     }
 
-    private void StopCountdown()
+    public void StopCountdown()
     {
         StopCoroutine(Countdown());
         isGameRunning = false;

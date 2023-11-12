@@ -105,7 +105,6 @@ public class WaveManager : MonoBehaviour
         enemyPool[enemyPrefab.GetNameTag()].Release(enemyPrefab);
         enemiesKilled++;
 
-        //Destroy(enemy.gameObject);
         if (enemiesKilled >= waves[currentWaveIndex].spawnCount)
         {
             onWaveEnd.Invoke();
@@ -144,6 +143,7 @@ public class WaveManager : MonoBehaviour
 
     public void OnWaveEnd()
     {
+        Debug.Log("Wave End");
         isWaveRunning = false;
         StopCoroutine(InstantiateOnTime());
         currentWaveIndex++;

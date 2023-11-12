@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 6800747535897039075}
   - component: {fileID: 8163167667394252278}
   - component: {fileID: 5308880781151107887}
-  - component: {fileID: 5038430896104413270}
   m_Layer: 7
   m_Name: 400_NPC_Turtle
   m_TagString: Untagged
@@ -100,34 +99,6 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: Enemy, Assembly-CSharp
         m_MethodName: OnHitBullet
         m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &5038430896104413270
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3139199415377873543}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 093dc73e7da2645488309397ab2a1e02, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  eventChannel: {fileID: 11400000, guid: 0f667e842cd373b48858d931c85b8d51, type: 2}
-  unityEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6800747535897039075}
-        m_TargetAssemblyTypeName: Enemy, Assembly-CSharp
-        m_MethodName: Death
-        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
