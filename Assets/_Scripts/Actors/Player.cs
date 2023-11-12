@@ -43,6 +43,7 @@ public class Player : MonoBehaviour
         {
             damage = damage * (1 - PlayerStats.damageReducePercentage / 100); //reduce damage by damage reduction percentage
             health -= damage;
+            playerHealthChannel.Invoke(health);
         }
     }
 

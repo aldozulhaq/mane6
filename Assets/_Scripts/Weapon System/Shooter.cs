@@ -23,14 +23,6 @@ public class Shooter : MonoBehaviour
         AdjustFireRate();
     }
 
-    private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            LevelUp();
-        }
-    }
-
     public void AdjustFireRate()
     {
         foreach (ParticleSystem ps in shooterPS)

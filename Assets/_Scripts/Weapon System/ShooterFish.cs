@@ -53,7 +53,6 @@ public class ShooterFish : Shooter
         var newShooterShape = newShooter.GetComponent<ParticleSystem>().shape;
         newShooterShape.rotation = Vector3.zero.WithY(currentAngle);
         newShooterFireRate.rateOverTime = (1 - baseShooterFireRate * (PlayerStats.fireRatePercentage / 100));
-        Debug.Log("Fire rate: " + newShooterFireRate.rateOverTime.constant);
         shooterPS.Add(newShooter.GetComponent<ParticleSystem>());
     }
 }

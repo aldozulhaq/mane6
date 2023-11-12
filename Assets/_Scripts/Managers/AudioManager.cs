@@ -20,6 +20,11 @@ public class AudioManager : MonoBehaviour
             Destroy(gameObject);
     }
 
+    private void Start()
+    {
+        PlayMusic("Main");
+    }
+
     public void PlayMusic(string musicName)
     {
         Audio audio = System.Array.Find(bgmClips, a => a.name == musicName);

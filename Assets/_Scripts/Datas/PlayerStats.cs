@@ -9,7 +9,6 @@ public class PlayerStats
     public static float maxHealth = 100f;
     public static float moveSpeedPercentage = 100f;
     public static float damagePercentage = 100f;
-    public static float attackSpeedPercentage = 100f;
     public static float fireRatePercentage = 100f;
     public static float critChancePercentage = 0f;
     public static float critDamagePercentage = 100f;
@@ -34,8 +33,6 @@ public class PlayerStats
                 case ModifierType.Damage:
                     ApplyModifier(ref damagePercentage, modifier);
                     break;
-                case ModifierType.AttackSpeed:
-                    ApplyModifier(ref attackSpeedPercentage, modifier);
                     break;
                 case ModifierType.CritChance:
                     ApplyModifier(ref critChancePercentage, modifier);
