@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1556707104163478280}
   - component: {fileID: 7616943286313365807}
+  - component: {fileID: 6702051935892641016}
   m_Layer: 0
   m_Name: OrbitShield
   m_TagString: Untagged
@@ -49,6 +50,34 @@ MonoBehaviour:
   maxLevel: 4
   orbitShieldFishPrefab: {fileID: 2684076762151928096, guid: d21be5cf55346cd438b1a0b1d45f8196,
     type: 3}
+--- !u!114 &6702051935892641016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5811457189921869503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 093dc73e7da2645488309397ab2a1e02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventChannel: {fileID: 11400000, guid: 9ede28a5a0855d84ba527f9b72a5f092, type: 2}
+  unityEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7616943286313365807}
+        m_TargetAssemblyTypeName: OrbitShield, Assembly-CSharp
+        m_MethodName: LevelUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &1434042098593952593
 PrefabInstance:
   m_ObjectHideFlags: 0

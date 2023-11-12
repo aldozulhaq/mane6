@@ -16,3 +16,5 @@ MonoBehaviour:
   weaponType: 0
   sprite: {fileID: 21300000, guid: 1a17b5efbc188fc4799df2b7033d3a16, type: 3}
   desc: +1 Ally Shield FIsh
+  maxLevel: 4
+  currentLevel: 1

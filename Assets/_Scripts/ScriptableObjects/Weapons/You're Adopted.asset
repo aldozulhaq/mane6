@@ -16,3 +16,5 @@ MonoBehaviour:
   weaponType: 0
   sprite: {fileID: 21300000, guid: 32724123c5031974fa1cc26efcabb864, type: 3}
   desc: +1 Ally Shooter Fish
+  maxLevel: 4
+  currentLevel: 1

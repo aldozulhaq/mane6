@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,7 +12,6 @@ public class Player : MonoBehaviour
     [SerializeField] float health;
     [SerializeField] float damage;
 
-    [SerializeField] float IframeDuration = 0.5f;
 
     [SerializeField] GameObject bulletParent;
     Bullet[] bullets;
@@ -57,6 +57,7 @@ public class Player : MonoBehaviour
         {
             damage = damage * (1 - PlayerStats.damageReducePercentage / 100); //reduce damage by damage reduction percentage
             health -= damage;
+
             playerHealthChannel.Invoke(health);
         }
     }

@@ -47,7 +47,6 @@ public class PlayerStats
                 case ModifierType.Damage:
                     ApplyModifier(ref damagePercentage, modifier);
                     break;
-                    break;
                 case ModifierType.CritChance:
                     ApplyModifier(ref critChancePercentage, modifier);
                     break;
