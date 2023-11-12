@@ -128,6 +128,8 @@ MonoBehaviour:
   health: 10
   damage: 5
   attackRadius: 0
+  hitCooldown: 1
+  OnEnemyDead: {fileID: 11400000, guid: 536d1bf1a246e5e43b0607c8f62aa03c, type: 2}
 --- !u!65 &4817505186237196926
 BoxCollider:
   m_ObjectHideFlags: 0

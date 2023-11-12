@@ -95,6 +95,7 @@ public class WaveManager : MonoBehaviour
         //Instantiate(enemyPrefab);
         var instantiatedEnemy = enemyPool[enemyPrefab.GetNameTag()].Get();
         instantiatedEnemy.transform.position = randomPosition;
+        instantiatedEnemy.transform.localRotation = Quaternion.Euler(Vector3.zero);
         instantiatedEnemy.Init(KillEnemy);
         instantiatedEnemies++;
         yield return null;

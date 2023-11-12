@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.Rendering;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -17,6 +18,8 @@ public class Enemy : MonoBehaviour
 
     private Action<Enemy> deathAction;
 
+    [SerializeField] protected EventChannel OnEnemyDead;
+
     protected virtual void OnEnable()
     {
         player = FindObjectOfType<Player>();
@@ -26,6 +29,7 @@ public class Enemy : MonoBehaviour
     private void Update()
     {
         transform.LookAt(player.transform);
+        transform.localRotation = Quaternion.Euler(0f, transform.localRotation.eulerAngles.y, 0f);
     }
 
     protected virtual IEnumerator MoveToPlayer()
@@ -72,6 +76,7 @@ public class Enemy : MonoBehaviour
     [ContextMenu("Kill")]
     public virtual void Death()
     {
+        OnEnemyDead.Invoke();
         deathAction(this);
     }
 

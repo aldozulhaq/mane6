@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
@@ -7,7 +8,6 @@ public enum ModifierType
     MaxHealth,
     MoveSpeed,
     Damage,
-    AttackSpeed,
     CritChance,
     CritDamage,
     LifeSteal,

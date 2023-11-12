@@ -47,9 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseShooter: {fileID: 8389119572046485810, guid: fec120cab1f958d45871b66019ebc08b,
     type: 3}
-  baseShooterFireRate: 0
-  level: 1
-  maxLevel: 5
+  baseShooterFireRate: 0.5
 --- !u!1001 &448599881245944712
 PrefabInstance:
   m_ObjectHideFlags: 0

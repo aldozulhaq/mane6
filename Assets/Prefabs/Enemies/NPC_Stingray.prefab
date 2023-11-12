@@ -55,7 +55,8 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e823cd5b5d27c0f4b8256e7c12ee3e6d, type: 2}
+  - {fileID: 2100000, guid: ccb5d91e562b3404d9aa449d74443df5, type: 2}
+  - {fileID: 2100000, guid: 7b5c4d09d53367b48ad5977a240cb88c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -121,9 +122,9 @@ ParticleSystem:
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 0
-  looping: 1
+  looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -4065,13 +4066,13 @@ ParticleSystem:
         m_RotationOrder: 4
     maxLights: 20
   TrailModule:
-    enabled: 0
+    enabled: 1
     mode: 0
     ratio: 1
     lifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.2
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -5051,8 +5052,8 @@ MonoBehaviour:
   health: 20
   damage: 1
   attackRadius: 30
-  hitCooldown: 1
-  OnEnemyHit: {fileID: 11400000, guid: ded9e88159b308f4a87ecd3bc5362796, type: 2}
+  hitCooldown: 3
+  OnEnemyDead: {fileID: 11400000, guid: 536d1bf1a246e5e43b0607c8f62aa03c, type: 2}
 --- !u!65 &1417150162918941202
 BoxCollider:
   m_ObjectHideFlags: 0

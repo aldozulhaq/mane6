@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -13,10 +14,14 @@ public class UIManager : MonoBehaviour
 
     float currentHealthBackProgress;
     float currentHealthFrontProgress;
+    float healthTempDebug = 100;
 
     private void Start()
     {
         healthBarMat = healthBar.material;
+
+        InitHealthBarToFull();
+
         currentHealthBackProgress = healthBarMat.GetFloat("_BackProgress");
         currentHealthFrontProgress = healthBarMat.GetFloat("_FrontProgress");
     }
@@ -27,27 +32,26 @@ public class UIManager : MonoBehaviour
     }
 
     public void UpdateHealthBar(float currentHealth)
-    {
-        //healthBar.fillAmount = currentHealth / PlayerStats.maxHealth;
-
-        //check if healing or taking damage
-        if (currentHealth > currentHealthBackProgress * PlayerStats.maxHealth)
-        {
-            StartCoroutine(IncreaseHealth(currentHealth));
-        }
-        else
-        {
-            StartCoroutine(DecreaseHealth(currentHealth));
-        }
+    {        
+        DOVirtual.Float(currentHealthFrontProgress * PlayerStats.maxHealth, currentHealth, 1f, AnimateFrontHealth);
+        DOVirtual.Float(currentHealthFrontProgress * PlayerStats.maxHealth, currentHealth, 1f, AnimateBackHealth).SetDelay(1f);
     }
 
-    private string IncreaseHealth(float currentHealth)
+    void AnimateFrontHealth(float currentHealth)
     {
-        throw new NotImplementedException();
+        healthBarMat.SetFloat("_FrontProgress", currentHealth / PlayerStats.maxHealth);
+        currentHealthFrontProgress = currentHealth / PlayerStats.maxHealth;
     }
 
-    private string DecreaseHealth(float currentHealth)
+    void AnimateBackHealth(float currentHealth)
     {
-        throw new NotImplementedException();
+        healthBarMat.SetFloat("_BackProgress", currentHealth / PlayerStats.maxHealth);
+        currentHealthBackProgress = currentHealth / PlayerStats.maxHealth;
+    }
+
+    void InitHealthBarToFull()
+    {
+        healthBarMat.SetFloat("_BackProgress", 1);
+        healthBarMat.SetFloat("_FrontProgress", 1);
     }
 }
