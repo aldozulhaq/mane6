@@ -1556,9 +1556,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1878358678}
-        m_TargetAssemblyTypeName: ShopItem, Assembly-CSharp
-        m_MethodName: Buy
+      - m_Target: {fileID: 2084713127}
+        m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
+        m_MethodName: RerollShopItem
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4165,7 +4165,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -6022,18 +6022,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1870159343}
   m_CullTransparentMesh: 1
---- !u!114 &1878358678 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4946375418869196601, guid: 6792efb114f15f04ca4587e5b9013bd3,
-    type: 3}
-  m_PrefabInstance: {fileID: 1829836611}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4877635b2f879e4eb5441a0145babb7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1886444958
 GameObject:
   m_ObjectHideFlags: 0

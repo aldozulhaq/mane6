@@ -42,12 +42,12 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _BackProgress: 1
+    - _BackProgress: 0.6076641
     - _Bar_Anim_Speed: 1
     - _Bar_Count: 5
     - _Bar_Rotation: 47
     - _Bar_Width: 0.4
-    - _FrontProgress: 1
+    - _FrontProgress: 0.6
     - _Progress: 1
     - _Segment_Width: 0.3
     - _Segment_X: 0

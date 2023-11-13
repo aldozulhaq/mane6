@@ -55,7 +55,7 @@ public class ShopItem : MonoBehaviour
 
     public void Buy()
     {
-        if (!pointManager.IsPointSufficient(price))
+        if (pointManager.IsPointSufficient(price))
         {
             pointManager.ReducePoint(price);
             item.Use();
